@@ -4,89 +4,136 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Checkout Page</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
         <link rel="shortcut icon" href="./Utils/Logo.png">
         <link rel="stylesheet" href="./CSS/Checkout.css">
+        <link rel="stylesheet" href="./CSS/Fake_Store.css">
     </head>
-    <body>
-        <div class="main_child1">
-            <h1>Checkout</h1>
-            <h3>Choose delivery address and payment method</h3>
-            <hr>
+    <body class="h:100, w:100">
 
-            <!-- Address -->
+        <!-- Navabar -->
 
-            <div class="address">
-                <div class="add_child1">
-                    <h4>delivery address</h4>
-                    <button>+ add new address</button>
-                </div>
-                <div class="add_child2">
-                    <img src="./Utils/Location.svg" alt="Location Image">
-                    <div class="text">
-                        <h5>joe's home address</h5>
-                        <p>1234 Main Street</p>
-                        <p>Anytown, USA 12345</p>
+        <nav>
+            <a href="#"><img src="./Utils/Logo.png" alt="Logo"></a>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li>About Us</li>
+                <li><a href="./Products.html">Products</a></li>
+                <li>Contact Us</li>
+                <li> <a href="#">Checkout</a></li>
+            </ul>
+            <a href="#">
+                <img src="./Utils/Cart.svg" alt="Cart Button" class="cart">
+            </a>
+            <a href="./Auth.html">
+                <img src="./Utils/Profile.svg"
+                    alt="Profile Icon"
+                    class="profile">
+            </a>
+        </nav>
+
+        <!-- End Of Navbar -->
+
+        <!-- Checkout Page -->
+        <div class="main_parent">
+            <div class="main_child1">
+                <h1>Checkout</h1>
+                <h3>Choose delivery address and payment method</h3>
+                <hr>
+
+                <!-- Address -->
+
+                <div class="address">
+                    <div class="add_child1">
+                        <h4>delivery address</h4>
+                        <button>+ add new address</button>
                     </div>
-                </div>
-
-                <!-- Payment Method -->
-
-                <h4>Payment Method</h4>
-                <div class="payement1">
-                    <div class="payment_child1">
-                        <img src="./Utils/Selected.svg" alt="Selected Icon">
+                    <div class="add_child2">
+                        <img src="./Utils/Location.svg" alt="Location Image">
                         <div class="text">
-                            <h4>Paypal</h4>
-                            <p>my paypal@example.com</p>
+                            <h5>joe's home address</h5>
+                            <p>1234 Main Street</p>
+                            <p>Anytown, USA 12345</p>
                         </div>
                     </div>
-                    <div class="payment_child2">
-                        <p>paypal</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="payement2">
-                    <div class="payment_child1">
-                        <img src="./Utils/Unselected.svg" alt="Unselected Icon">
-                        <div class="text">
-                            <h4>Visa</h4>
-                            <p>**** **** **** 2974</p>
+
+                    <!-- End Of Address -->
+
+                    <!-- Payment Method -->
+
+                    <h4>Payment Method</h4>
+                    <div class="payement1">
+                        <div class="payment_child1">
+                            <img src="./Utils/Selected.svg" alt="Selected Icon">
+                            <div class="text">
+                                <h4>Paypal</h4>
+                                <p>my paypal@example.com</p>
+                            </div>
+                        </div>
+                        <div class="payment_child2">
+                            <p>paypal</p>
                         </div>
                     </div>
-                    <div class="payment_child2">
-                        <p>stripe</p>
+                    <hr>
+                    <div class="payement2">
+                        <div class="payment_child1">
+                            <img src="./Utils/Unselected.svg"
+                                alt="Unselected Icon">
+                            <div class="text">
+                                <h4>Visa</h4>
+                                <p>**** **** **** 2974</p>
+                            </div>
+                        </div>
+                        <div class="payment_child2">
+                            <p>stripe</p>
+                        </div>
                     </div>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- End Of Payemnt -->
+
+            <!-- Order Summary -->
+
+            <div class="main_child2">
+                <h4>Order Summary</h4>
+                <div class="order_child1">
+                    <p>Beanie, black</p>
+                    <p>$24</p>
+                </div>
+                <div class="order_child1">
+                    <p>Beanie, orange</p>
+                    <p>$24</p>
                 </div>
                 <hr>
+                <div class="order_child2">
+                    <p>Total Price (item)</p>
+                    <p>$48</p>
+                </div>
+                <div class="order_child2">
+                    <p>Shipping Tax & Fee</p>
+                    <p>$10</p>
+                </div>
+                <div class="order_child3">
+                    <p>Grand Total</p>
+                    <p>$58</p>
+                </div>
+                <button>Checkout</button>
             </div>
-        </div>
 
-        <!-- Order Summary -->
-
-        <div class="main_child2">
-            <h4>Order Summary</h4>
-            <div class="order_child1">
-                <p>Beanie, black</p>
-                <p>$24</p>
-            </div>
-            <div class="order_child1">
-                <p>Beanie, orange</p>
-                <p>$24</p>
-            </div>
-            <hr>
-            <div class="order_child2">
-                <p>Total Price (item)</p>
-                <p>$48</p>
-            </div>
-            <div class="order_child2">
-                <p>Shipping Tax & Fee</p>
-                <p>$10</p>
-            </div>
-            <div class="order_child3">
-                <p>Grand Total</p>
-                <p>$58</p>
-            </div>
-            <button>Checkout</button>
+            <!-- End Of Order Summary -->
         </div>
+        <!-- End Of Checkout Page -->
+
     </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="./JS/Checkout.js"></script>
 </html>

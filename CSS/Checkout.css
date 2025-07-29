@@ -9,11 +9,13 @@
 
 body {
   background-color: aquamarine;
+}
+
+.main_parent {
   padding: 20px 30px;
   display: flex;
   align-items: start;
   gap: 100px;
-  width: 100%;
 }
 
 h3 {
