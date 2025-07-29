@@ -99,9 +99,7 @@ h1 {
   padding: 10px;
 }
 
-.cart_btn:hover,
-.next:hover,
-.prev:hover {
+.cart_btn:hover {
   /* background-color: black; */
   scale: 1.02;
   transition: all 0.2s ease-in-out;
@@ -266,4 +264,21 @@ label {
   border-radius: 20px;
   /* border: 2px solid red; */
   box-shadow: 4px 4px 10px 2px black;
+}
+
+/* ====== Cart Page ===== */
+
+.cartLength-active {
+  text-align: center;
+  font-size: x-small;
+  font-weight: 900;
+  padding: 1.5px;
+  position: absolute;
+  top: 72px;
+  border-radius: 50%;
+  background: tomato;
+  color: whitesmoke;
+  height: 18px;
+  width: 18px;
+  left: 81.9%;
 }

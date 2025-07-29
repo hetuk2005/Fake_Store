@@ -1,5 +1,18 @@
 const api = "https://fakestoreapi.com/products";
 
+let cartArr = JSON.parse(localStorage.getItem("cartItem")) || [];
+console.log("cartArr: ", cartArr.length);
+
+const path = window.location.pathname;
+// console.log(path);
+
+const cartLength = document.querySelector("span");
+if (path === "/index.html") {
+  cartLength.style.display = cartArr.length < 0 ? "none" : "block";
+  cartLength.className = cartArr.length > 0 ? "cartLength-active" : "none";
+  cartLength.innerHTML = cartArr.length > 0 ? cartArr.length : "";
+}
+
 const Apicalling = () => {
   fetch(api)
     .then((res) => res.json())
@@ -22,10 +35,6 @@ const appendsFunc = (data) => {
     let count = document.createElement("p");
     let id = document.createElement("p");
     let cart_btn = document.createElement("img");
-    let cart_btn_pag = document.createElement("div");
-    let next = document.createElement("button");
-    let num = document.createElement("button");
-    let prev = document.createElement("button");
 
     cardDiv.className = "card_div";
     title.className = "title";
@@ -37,11 +46,6 @@ const appendsFunc = (data) => {
     count.className = "count";
     cart_btn.className = "cart_btn";
     img.className = "div_image";
-    cart_btn_pag.className = "cart_btn_pag";
-    next.className = "next";
-    prev.className = "prev";
-    num.className = "num";
-    let cart_visible = false;
 
     cart_btn.src = "./Utils/Cart.svg";
     img.src = element.image;
@@ -52,33 +56,23 @@ const appendsFunc = (data) => {
     category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
     rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
     count.innerHTML = `<b><u>Count</u>: ${element.rating.count}</b>`;
-    next.innerHTML = `+`;
-    prev.innerHTML = `-`;
-    num.innerHTML = ``;
 
-    rating.append(price, rate, count);
-    cart_btn_pag.append(prev, num, next);
-    cardDiv.append(
-      img,
-      title,
-      id,
-      description,
-      category,
-      rating,
-      cart_btn,
-      cart_btn_pag
-    );
-    dataShow.append(cardDiv);
-
-    cart_btn.addEventListener("click", () => {
-      cart_visible = !cart_visible;
-      if (cart_visible) {
-        cart_btn.style.display = "none";
-        cart_btn_pag.style.display = "flex";
-      } else {
-        cart_btn.style.display = "inline-block";
-        cart_btn_pag.style.display = "none";
+    cart_btn.addEventListener("click", function () {
+      cartArr.push(element);
+      localStorage.setItem("cartItem", JSON.stringify(cartArr));
+      if (cartArr.length && path === "/index.html") {
+        cartLength.style.display = "block";
+        cartLength.className = "cartLength-active";
+        cartLength.innerHTML = cartArr.length;
       }
     });
+
+    rating.append(price, rate, count);
+    cardDiv.append(img, title, id, description, category, rating, cart_btn);
+    dataShow.append(cardDiv);
   });
+};
+
+const cartDisplay = () => {
+  appendsFunc(cartArr);
 };
