@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Checkout Page</title>
         <link rel="shortcut icon" href="./Utils/Logo.png">
-        <link rel="stylesheet" href="./CSS/Fake_Store.css">
+        <link rel="stylesheet" href="./CSS/Checkout.css">
     </head>
     <body>
         <div class="main_child1">
@@ -32,9 +32,61 @@
                 <!-- Payment Method -->
 
                 <h4>Payment Method</h4>
+                <div class="payement1">
+                    <div class="payment_child1">
+                        <img src="./Utils/Selected.svg" alt="Selected Icon">
+                        <div class="text">
+                            <h4>Paypal</h4>
+                            <p>my paypal@example.com</p>
+                        </div>
+                    </div>
+                    <div class="payment_child2">
+                        <p>paypal</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="payement2">
+                    <div class="payment_child1">
+                        <img src="./Utils/Unselected.svg" alt="Unselected Icon">
+                        <div class="text">
+                            <h4>Visa</h4>
+                            <p>**** **** **** 2974</p>
+                        </div>
+                    </div>
+                    <div class="payment_child2">
+                        <p>stripe</p>
+                    </div>
+                </div>
+                <hr>
             </div>
-
         </div>
-        <div class="main_chil2"></div>
+
+        <!-- Order Summary -->
+
+        <div class="main_child2">
+            <h4>Order Summary</h4>
+            <div class="order_child1">
+                <p>Beanie, black</p>
+                <p>$24</p>
+            </div>
+            <div class="order_child1">
+                <p>Beanie, orange</p>
+                <p>$24</p>
+            </div>
+            <hr>
+            <div class="order_child2">
+                <p>Total Price (item)</p>
+                <p>$48</p>
+            </div>
+            <div class="order_child2">
+                <p>Shipping Tax & Fee</p>
+                <p>$10</p>
+            </div>
+            <div class="order_child3">
+                <p>Grand Total</p>
+                <p>$58</p>
+            </div>
+            <button>Checkout</button>
+        </div>
     </body>
 </html>
