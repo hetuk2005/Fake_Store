@@ -18,21 +18,18 @@
         <nav>
             <a href="#"><img src="./Utils/Logo.png" alt="Logo"></a>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li onclick="home()">Home</li>
                 <li>About Us</li>
-                <li><a href="#">Products</a></li>
+                <li>Products</li>
                 <li>Contact Us</li>
-                <li><a href="./Checkout.html">Checkout</a></li>
+                <li onclick="checkout()">Checkout</li>
             </ul>
-            <a href="./Cart.html">
-                <img src="./Utils/Cart.svg" alt="Cart Button" class="cart">
-                <span></span>
-            </a>
-            <a href="./Auth.html">
-                <img src="./Utils/Profile.svg"
-                    alt="Profile Icon"
-                    class="profile">
-            </a>
+            <img src="./Utils/Cart.svg" alt="Cart Button" class="cart"
+                onclick="cart()">
+            <span></span>
+            <img src="./Utils/Profile.svg"
+                alt="Profile Icon"
+                class="profile" onclick="auth()">
         </nav>
         <!-- Small screen button -->
         <div class="d-flex justify-content-center align-items-center mt-3">

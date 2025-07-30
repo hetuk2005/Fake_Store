@@ -76,3 +76,19 @@ const appendsFunc = (data) => {
 const cartDisplay = () => {
   appendsFunc(cartArr);
 };
+
+const home = () => {
+  window.location = "index.html";
+};
+
+const checkout = () => {
+  window.location = "Checkout.html";
+};
+
+const cart = () => {
+  window.location = "Cart.html";
+};
+
+const auth = () => {
+  window.location = "Auth.html";
+};

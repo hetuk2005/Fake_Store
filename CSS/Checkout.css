@@ -7,6 +7,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   background-color: aquamarine;
 }
@@ -16,6 +21,11 @@ body {
   display: flex;
   align-items: start;
   gap: 100px;
+}
+
+h1 {
+  margin: 15px 0;
+  text-align: center;
 }
 
 h3 {
@@ -158,4 +168,102 @@ button:hover {
 .main_child2 > button {
   margin: 15px 10px;
   width: 95%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border: 2px solid;
+  margin: 10px 20px;
+  border-radius: 60px;
+}
+
+nav > a > img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 100px;
+  font-weight: 700;
+  font-size: larger;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+li {
+  border-radius: 50%;
+}
+
+li:hover {
+  border-radius: 0;
+  padding: 10px;
+  background-color: black;
+  color: whitesmoke;
+  line-height: 28px;
+  transition: all 0.7s ease-in-out;
+}
+
+.cart {
+  /* border: 1px solid red; */
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.profile {
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.cart:hover,
+.submit:hover,
+.profile:hover {
+  box-shadow: 1.5px 0.3px 1.5px 1.5px black;
+}
+
+.cart_btn_pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: none;
+}
+
+.cart_btn_pag > button {
+  box-shadow: 1px 0.3px 1px 1px black;
+  width: 40px;
+  height: 40px;
+  font-size: x-large;
+  font-weight: 900;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.cartLength-active {
+  text-align: center;
+  font-size: x-small;
+  font-weight: 900;
+  padding: 1.5px;
+  position: absolute;
+  top: 72px;
+  border-radius: 50%;
+  background: tomato;
+  color: whitesmoke;
+  height: 18px;
+  width: 18px;
+  left: 81.9%;
 }
