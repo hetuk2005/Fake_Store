@@ -13,24 +13,21 @@
         <link rel="shortcut icon" href="./Utils/Logo.png">
     </head>
     <body class="h-100 w-100" onload="cartDisplay()">
-        <h1><a href="./index.html">Fake Store</a></h1>
+        <h1 onclick="home()">Fake Store</h1>
         <nav>
-            <a href="#"><img src="./Utils/Logo.png" alt="Logo"></a>
+            <img src="./Utils/Logo.png" alt="Logo" onclick="home()">
             <ul>
-                <li><a href="./index.html">Home</a></li>
+                <li onclick="home()">Home</li>
                 <li>About Us</li>
                 <li><a href="./Products.html">Products</a></li>
                 <li>Contact Us</li>
-                <li> <a href="./Checkout.html">Checkout</a></li>
+                <li onclick="checkout()"> Checkout</li>
             </ul>
-            <a href="#">
-                <img src="./Utils/Cart.svg" alt="Cart Button" class="cart">
-            </a>
-            <a href="./Auth.html">
-                <img src="./Utils/Profile.svg"
-                    alt="Profile Icon"
-                    class="profile">
-            </a>
+            <img src="./Utils/Cart.svg" alt="Cart Button" class="cart"
+                onclick="cart()">
+            <img src="./Utils/Profile.svg"
+                alt="Profile Icon"
+                class="profile" onclick="auth()">
         </nav>
         <div class="infos" id="info"></div>
         <!-- <div id="cart"></div> -->

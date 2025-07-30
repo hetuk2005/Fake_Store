@@ -13,9 +13,9 @@
         <link rel="stylesheet" href="./CSS/Checkout.css">
     </head>
     <body class="h-100 w-100">
-        <h1><a href="#">Fake Store</a></h1>
+        <h1 onclick="home()">Fake Store</h1>
         <nav>
-            <a href="#"><img src="./Utils/Logo.png" alt="Logo"></a>
+            <img src="./Utils/Logo.png" alt="Logo" onclick="home()">
             <ul>
                 <li onclick="home()">Home</li>
                 <li>About Us</li>
@@ -23,15 +23,12 @@
                 <li>Contact Us</li>
                 <li onclick="checkout()">Checkout</li>
             </ul>
-            <a href="./Cart.html">
-                <img src="./Utils/Cart.svg" alt="Cart Button" class="cart">
-                <span></span>
-            </a>
-            <a href="./Auth.html">
-                <img src="./Utils/Profile.svg"
-                    alt="Profile Icon"
-                    class="profile">
-            </a>
+            <img src="./Utils/Cart.svg" alt="Cart Button" class="cart"
+                onclick="cart()">
+            <span></span>
+            <img src="./Utils/Profile.svg"
+                alt="Profile Icon"
+                class="profile" onclick="auth()">
         </nav>
 
         <!-- Checkout Page -->
