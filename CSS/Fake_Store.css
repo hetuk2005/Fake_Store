@@ -92,9 +92,10 @@ h1 {
   object-fit: contain;
   border: 1px solid;
   font-size: large;
-  font-weight: 550;
+  font-weight: 700;
   border-radius: 10px;
   padding: 5px 10px;
+  background-color: transparent;
 }
 
 .cart_btn:hover,
