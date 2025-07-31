@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 body {
   text-transform: capitalize;
   background-color: aquamarine;
@@ -89,17 +84,21 @@ h1 {
   gap: 10px;
 }
 
-.cart_btn {
-  width: 50px;
+.cart_btn,
+.cart_btn1 {
+  width: auto;
   box-shadow: 1.5px 0.5px 1.5px 1.5px black;
   height: 40px;
   object-fit: contain;
   border: 1px solid;
+  font-size: large;
+  font-weight: 550;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
-.cart_btn:hover {
+.cart_btn:hover,
+.cart_btn1:hover {
   /* background-color: black; */
   scale: 1.02;
   transition: all 0.2s ease-in-out;
@@ -117,7 +116,7 @@ nav {
   border-radius: 60px;
 }
 
-nav > a > img {
+nav > img {
   height: 40px;
   width: 40px;
   object-fit: contain;

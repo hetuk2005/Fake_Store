@@ -34,7 +34,8 @@ const appendsFunc = (data) => {
     let rate = document.createElement("p");
     let count = document.createElement("p");
     let id = document.createElement("p");
-    let cart_btn = document.createElement("img");
+    // let cart_btn1 = document.createElement("img");
+    let cart_btn = document.createElement("button");
 
     cardDiv.className = "card_div";
     title.className = "title";
@@ -47,8 +48,9 @@ const appendsFunc = (data) => {
     cart_btn.className = "cart_btn";
     img.className = "div_image";
 
-    cart_btn.src = "./Utils/Cart.svg";
+    // cart_btn1.src = "./Utils/Cart.svg";
     img.src = element.image;
+    cart_btn.innerText = "Remove";
     title.innerText = element.title;
     id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
     price.innerHTML = `<b><u>Price</u>: $${element.price}</b>`;
@@ -58,14 +60,26 @@ const appendsFunc = (data) => {
     count.innerHTML = `<b><u>Count</u>: ${element.rating.count}</b>`;
 
     cart_btn.addEventListener("click", function () {
-      cartArr.push(element);
+      // cartArr.push(element);
+
+      let deleteData = cartArr.filter((dl) => {
+        return dl.id !== element.id;
+      });
+      cartArr = deleteData;
+
       localStorage.setItem("cartItem", JSON.stringify(cartArr));
-      if (cartArr.length && path === "/index.html") {
-        cartLength.style.display = "block";
-        cartLength.className = "cartLength-active";
-        cartLength.innerHTML = cartArr.length;
-      }
+      appendsFunc(cartArr);
     });
+
+    // cart_btn.addEventListener("click", function () {
+    //   cartArr.push(element);
+    //   localStorage.setItem("cartItem", JSON.stringify(cartArr));
+    //   if (cartArr.length && path === "/index.html") {
+    //     cartLength.style.display = "block";
+    //     cartLength.className = "cartLength-active";
+    //     cartLength.innerHTML = cartArr.length;
+    //   }
+    // });
 
     rating.append(price, rate, count);
     cardDiv.append(img, title, id, description, category, rating, cart_btn);

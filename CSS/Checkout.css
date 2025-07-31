@@ -7,11 +7,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 body {
   background-color: aquamarine;
 }
@@ -180,7 +175,7 @@ nav {
   border-radius: 60px;
 }
 
-nav > a > img {
+nav > img {
   height: 40px;
   width: 40px;
   object-fit: contain;
