@@ -100,7 +100,6 @@ h1 {
 
 .cart_btn:hover,
 .cart_btn1:hover {
-  /* background-color: black; */
   scale: 1.02;
   transition: all 0.2s ease-in-out;
   border: 2px solid;
