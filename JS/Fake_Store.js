@@ -58,18 +58,6 @@ const appendsFunc = (data) => {
     count.innerHTML = `<b><u>Count</u>: ${element.rating.count}</b>`;
 
     cart_btn1.addEventListener("click", function () {
-      // cartArr.push(element);
-
-      let deleteData = cartArr.filter((dl) => {
-        return dl.id !== element.id;
-      });
-      cartArr = deleteData;
-
-      localStorage.setItem("cartItem", JSON.stringify(cartArr));
-      appendsFunc(cartArr);
-    });
-
-    cart_btn1.addEventListener("click", function () {
       cartArr.push(element);
       localStorage.setItem("cartItem", JSON.stringify(cartArr));
       if (cartArr.length && path === "/index.html") {
