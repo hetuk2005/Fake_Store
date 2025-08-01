@@ -148,6 +148,19 @@ li:hover {
   transition: all 0.7s ease-in-out;
 }
 
+button {
+  height: 40px;
+  border-radius: 10px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
+  font-size: large;
+  font-weight: 900;
+  background-color: transparent;
+}
+
 .cart {
   /* border: 1px solid red; */
   height: 35px;
@@ -167,7 +180,8 @@ li:hover {
 
 .cart:hover,
 .submit:hover,
-.profile:hover {
+.profile:hover,
+button:hover {
   box-shadow: 1.5px 0.3px 1.5px 1.5px black;
 }
 
@@ -179,7 +193,8 @@ li:hover {
   display: none;
 }
 
-.cart_btn_pag > button {
+.cart_btn_pag > button,
+.checkout_btn {
   box-shadow: 1px 0.3px 1px 1px black;
   width: 40px;
   height: 40px;
@@ -188,6 +203,19 @@ li:hover {
   text-align: center;
   background-color: transparent;
   border-radius: 10px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.checkout_btn {
+  width: auto;
+  padding: 0 10px;
+  font-weight: 700 !important;
 }
 
 /* ====== Form/Auth Page ====== */

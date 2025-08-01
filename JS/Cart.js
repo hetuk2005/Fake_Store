@@ -1,7 +1,10 @@
-const api = "https://fakestoreapi.com/products";
-
 let cartArr = JSON.parse(localStorage.getItem("cartItem")) || [];
-console.log("cartArr: ", cartArr.length);
+
+let tokenStorage = JSON.parse(sessionStorage.getItem("token"));
+
+if (!tokenStorage) {
+  window.location = "Auth.html";
+}
 
 const path = window.location.pathname;
 // console.log(path);
@@ -13,6 +16,20 @@ if (path === "/index.html") {
   cartLength.innerHTML = cartArr.length > 0 ? cartArr.length : "";
 }
 
+const result = cartArr.reduce((acc, item) => {
+  const existing = acc.find((el) => el.id === item.id);
+  if (existing) {
+    existing.count += 1; // increment count
+  } else {
+    acc.push({ ...item }); // clone item
+  }
+  return acc;
+}, []);
+
+cartArr = result;
+
+localStorage.setItem("cartItem", JSON.stringify(cartArr));
+
 const Apicalling = () => {
   fetch(api)
     .then((res) => res.json())
@@ -22,9 +39,11 @@ const Apicalling = () => {
 
 const appendsFunc = (data) => {
   let dataShow = document.getElementById("info");
+  dataShow.innerHTML = "";
 
   data.forEach((element) => {
     let cardDiv = document.createElement("div");
+    let buttonDiv = document.createElement("div");
     let img = document.createElement("img");
     let title = document.createElement("h5");
     let price = document.createElement("p");
@@ -35,8 +54,10 @@ const appendsFunc = (data) => {
     let count = document.createElement("p");
     let id = document.createElement("p");
     let cart_btn = document.createElement("button");
+    let button = document.createElement("button");
 
     cardDiv.className = "card_div";
+    buttonDiv.className = "buttonDiv";
     title.className = "title";
     rating.className = "rating";
     price.className = "price";
@@ -46,9 +67,11 @@ const appendsFunc = (data) => {
     count.className = "count";
     cart_btn.className = "cart_btn";
     img.className = "div_image";
+    button.className = "checkout_btn";
 
     img.src = element.image;
     cart_btn.innerText = "Remove";
+    button.innerText = "Checkout";
     title.innerText = element.title;
     id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
     price.innerHTML = `<b><u>Price</u>: $${element.price}</b>`;
@@ -69,8 +92,13 @@ const appendsFunc = (data) => {
       appendsFunc(cartArr);
     });
 
+    button.addEventListener("click", () => {
+      window.location = "Checkout.html";
+    });
+
+    buttonDiv.append(cart_btn, button);
     rating.append(price, rate, count);
-    cardDiv.append(img, title, id, description, category, rating, cart_btn);
+    cardDiv.append(img, title, id, description, category, rating, buttonDiv);
     dataShow.append(cardDiv);
   });
 };

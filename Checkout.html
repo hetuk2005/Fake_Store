@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Checkout Page</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-            crossorigin="anonymous">
         <link rel="shortcut icon" href="./Utils/Logo.png">
+        <script src="./JS/Checkout.js"></script>
         <link rel="stylesheet" href="./CSS/Checkout.css">
     </head>
-    <body class="h-100 w-100">
-        <h1 onclick="home()">Fake Store</h1>
-        <nav>
-            <img src="./Utils/Logo.png" alt="Logo" onclick="home()">
-            <ul>
-                <li onclick="home()">Home</li>
-                <li>About Us</li>
-                <li>Products</li>
-                <li>Contact Us</li>
-                <li onclick="checkout()">Checkout</li>
-            </ul>
-            <img src="./Utils/Cart.svg" alt="Cart Button" class="cart"
-                onclick="cart()">
-            <span></span>
-            <img src="./Utils/Profile.svg"
-                alt="Profile Icon"
-                class="profile" onclick="auth()">
-        </nav>
+
+    <body id="login" onload="DataCheckout()">
 
         <!-- Checkout Page -->
+        <button onclick="backFun()">back to home</button>
 
         <div class="main_parent">
             <div class="main_child1">
-                <h2>Checkout</h2>
+                <h1>Checkout</h1>
+                <div class="dataCart"></div>
                 <h3>Choose delivery address and payment method</h3>
                 <hr>
 
@@ -47,7 +30,9 @@
                         <button>+ add new address</button>
                     </div>
                     <div class="add_child2">
-                        <img src="./Utils/Location.svg" alt="Location Image">
+                        <img
+                            src="https://raw.githubusercontent.com/hetuk2005/Fake_Store/9a8c8f855f8006d72ffe1757e0966865b1e8230d/Utils/Location.svg"
+                            alt="Location Image">
                         <div class="text">
                             <h5>joe's home address</h5>
                             <p>1234 Main Street</p>
@@ -62,7 +47,9 @@
                     <h4>Payment Method</h4>
                     <div class="payement1">
                         <div class="payment_child1">
-                            <img src="./Utils/Selected.svg" alt="Selected Icon">
+                            <img
+                                src="https://raw.githubusercontent.com/hetuk2005/Fake_Store/9a8c8f855f8006d72ffe1757e0966865b1e8230d/Utils/Selected.svg"
+                                alt="Selected Icon">
                             <div class="text">
                                 <h4>Paypal</h4>
                                 <p>my paypal@example.com</p>
@@ -75,7 +62,8 @@
                     <hr>
                     <div class="payement2">
                         <div class="payment_child1">
-                            <img src="./Utils/Unselected.svg"
+                            <img
+                                src="https://raw.githubusercontent.com/hetuk2005/Fake_Store/9a8c8f855f8006d72ffe1757e0966865b1e8230d/Utils/Unselected.svg"
                                 alt="Unselected Icon">
                             <div class="text">
                                 <h4>Visa</h4>
@@ -107,15 +95,15 @@
                 <hr>
                 <div class="order_child2">
                     <p>Total Price (item)</p>
-                    <p>$48</p>
+                    <p id="totalPrice">₹0</p>
                 </div>
                 <div class="order_child2">
                     <p>Shipping Tax & Fee</p>
-                    <p>$10</p>
+                    <p id="tax">₹830</p>
                 </div>
                 <div class="order_child3">
                     <p>Grand Total</p>
-                    <p>$58</p>
+                    <p id="final_GT">₹830</p>
                 </div>
                 <button>Checkout</button>
             </div>
@@ -125,10 +113,5 @@
         <!-- End Of Checkout Page -->
 
     </body>
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-    <script src="./JS/Checkout.js"></script>
-    <script src="./JS/Fake_Store.js"></script>
+
 </html>

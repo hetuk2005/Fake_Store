@@ -62,7 +62,8 @@ button:hover {
 }
 
 .add_child1 > button,
-.main_child2 > button {
+.main_child2 > button,
+button {
   transition: all 0.2s ease-in-out;
   padding: 10px 21px;
   background-color: transparent;
@@ -261,4 +262,26 @@ li:hover {
   height: 18px;
   width: 18px;
   left: 81.9%;
+}
+
+.details > img {
+  height: 100px !important;
+  width: 100px !important;
+}
+
+.details,
+.quantity,
+.final {
+  display: flex !important;
+  align-items: center;
+  gap: 20px;
+}
+
+.final,
+.details {
+  gap: 10px;
+}
+
+.final {
+  margin: 20px 0;
 }

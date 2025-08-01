@@ -1,4 +1,4 @@
-let storage = JSON.parse(localStorage.getItem("token"));
+let storage = JSON.parse(sessionStorage.getItem("token"));
 
 const SubmitData = async (e) => {
   e.preventDefault();
@@ -21,10 +21,9 @@ const SubmitData = async (e) => {
     });
     let data = await res.json();
 
-    localStorage.setItem("token", JSON.stringify(data.token));
-    if (storage) {
+    sessionStorage.setItem("token", JSON.stringify(data.token));
+    if (data.token) {
       window.location = "index.html";
-      localStorage.removeItem("token");
     }
   } catch (error) {
     console.log("Error: ", error);
@@ -35,3 +34,6 @@ const SubmitData = async (e) => {
     johnd -> username
     m38rmF$ -> pass    
 */
+const home = () => {
+  window.location = "index.html";
+};
