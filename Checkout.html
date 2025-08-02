@@ -105,13 +105,21 @@
                     <p>Grand Total</p>
                     <p id="final_GT">₹830</p>
                 </div>
-                <button>Checkout</button>
+                <button onclick="openModal()">Checkout</button>
             </div>
 
             <!-- End Of Order Summary -->
+
+            <div id="modal">
+                <div id="modal_container">
+                    <img src="./Utils/Checkout.svg" alt="Checkout">
+                    <h3>Thank You For Shopping From Our Website</h3>
+                    <h5>Visit Again</h5>
+                    <button onclick="closeModal()">Thank You</button>
+                </div>
+            </div>
         </div>
         <!-- End Of Checkout Page -->
-
     </body>
 
 </html>

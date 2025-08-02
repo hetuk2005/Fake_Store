@@ -285,3 +285,38 @@ li:hover {
 .final {
   margin: 20px 0;
 }
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+#modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#modal_container {
+  background-color: aquamarine;
+  border-radius: 10px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#modal_container > img {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  display: block;
+}

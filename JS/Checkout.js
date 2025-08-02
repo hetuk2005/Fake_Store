@@ -1,5 +1,5 @@
 let cartArr = JSON.parse(localStorage.getItem("cartItem"));
-console.log("🚀 ~ cartArr:", cartArr);
+// console.log("🚀 ~ cartArr:", cartArr);
 
 let tokenStorage = JSON.parse(localStorage.getItem("token"));
 
@@ -104,10 +104,20 @@ function costUpdate() {
 
   totalPrice.append(`₹ ${total}`);
   tax.append(`₹ ${shipping * 83}`);
-  console.log(total + shipping);
+  // console.log(total + shipping);
   finalGT.append(`₹ ${total + shipping * 83}`);
 }
 
 const backFun = () => {
   window.location = "index.html";
 };
+
+function openModal() {
+  const modal = document.querySelector("#modal");
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  const modal = document.querySelector("#modal");
+  modal.classList.remove("show");
+}
