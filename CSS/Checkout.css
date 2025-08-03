@@ -346,12 +346,14 @@ li:hover {
   color: black;
   font-size: x-large;
   margin: 20px 0;
+  pointer-events: none;
 }
 
 #modal_container > h4 {
   font-size: larger;
   font-weight: 600;
   margin: 10px 0;
+  pointer-events: none;
 }
 
 #modal_container > button {
@@ -369,4 +371,21 @@ li:hover {
   padding: 5px;
   height: 40px;
   width: 40px;
+}
+
+.close {
+  position: absolute;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 0;
+  top: 155px;
+  right: 485px;
+}
+
+.close > img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
