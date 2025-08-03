@@ -27,6 +27,8 @@ const DataCheckout = () => {
     divDetails.classList.add("details");
     divQuanty.classList.add("quantity");
     finalDiv.classList.add("final");
+    button_1.classList.add("button_1");
+    button_2.classList.add("button_2");
 
     id.innerText = i + 1;
 
@@ -101,6 +103,7 @@ function costUpdate() {
   cartArr.map((ss) => {
     total += ss.count * Math.round(ss.price * 83);
   });
+  // console.log("Total: ", total);
 
   totalPrice.append(`₹ ${total}`);
   tax.append(`₹ ${shipping * 83}`);

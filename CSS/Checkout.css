@@ -24,6 +24,7 @@ h1 {
 }
 
 h3 {
+  font-size: large;
   padding: 15px 0;
   color: gray;
   text-transform: capitalize;
@@ -277,6 +278,14 @@ li:hover {
   gap: 20px;
 }
 
+.quantity {
+  gap: 15px;
+}
+
+.quantity > p {
+  padding-top: 11px;
+}
+
 .final,
 .details {
   gap: 10px;
@@ -347,4 +356,17 @@ li:hover {
 
 #modal_container > button {
   margin-top: 20px;
+}
+
+.back {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.button_1,
+.button_2 {
+  border-radius: 50%;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
 }
