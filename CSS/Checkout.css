@@ -305,18 +305,46 @@ li:hover {
 }
 
 #modal_container {
-  background-color: aquamarine;
-  border-radius: 10px;
+  background-color: whitesmoke;
+  border-radius: 17px;
   padding: 30px 50px;
   width: 600px;
   max-width: 100%;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 #modal_container > img {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
   margin: auto;
   display: block;
+  animation: scale 1s linear infinite;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+#modal_container > h3 {
+  color: black;
+  font-size: x-large;
+  margin: 20px 0;
+}
+
+#modal_container > h4 {
+  font-size: larger;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+#modal_container > button {
+  margin-top: 20px;
 }
