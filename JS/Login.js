@@ -3,7 +3,7 @@ let storage = JSON.parse(sessionStorage.getItem("token"));
 const SubmitData = async (e) => {
   e.preventDefault();
 
-  const loginAPI = `http://localhost:3000/register`;
+  const loginAPI = `http://localhost:3000/users`;
 
   const username = document.querySelector("#username").value;
   const pass = document.querySelector("#pass").value;
@@ -23,7 +23,7 @@ const SubmitData = async (e) => {
 
     sessionStorage.setItem("token", JSON.stringify(data.token));
     if (data.token) {
-      window.location = "login.html";
+      window.location = "Bakery.html";
     }
   } catch (error) {
     console.log("Error: ", error);
