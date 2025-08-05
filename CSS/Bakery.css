@@ -99,7 +99,6 @@ nav {
 }
 
 ul > img {
-  /* width: 60px; */
   max-width: 70px;
   height: 60px;
   border-radius: 50%;
@@ -110,6 +109,7 @@ ul > img {
 
 ul > input {
   width: 270px;
+  border: 2px solid;
 }
 
 ul {
@@ -131,6 +131,9 @@ select {
 }
 
 select {
+  padding: 0 3px;
+  padding-top: 2px;
+  border-radius: 10px;
   border: 2px solid;
 }
 
