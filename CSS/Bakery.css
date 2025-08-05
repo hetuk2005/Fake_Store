@@ -17,11 +17,13 @@ body {
   align-items: center;
   gap: 20px;
   flex-direction: column;
+  width: 90%;
   padding: 20px;
-  margin: 10px 20px;
+  padding-bottom: 30px;
+  margin: 20px;
   border-radius: 20px;
+  background-color: whitesmoke;
   /* border: 2px solid red; */
-  box-shadow: 4px 4px 10px 2px black;
 }
 
 h1 {
@@ -33,14 +35,8 @@ h1 {
 .div_image {
   width: inherit;
   height: 230px;
-  mix-blend-mode: darken;
-  object-fit: contain;
+  object-fit: cover;
   transition: all 0.5s ease-in-out;
-}
-
-.div_image:hover {
-  border-radius: 50%;
-  mix-blend-mode: normal;
 }
 
 .title {
@@ -81,12 +77,10 @@ h1 {
 .infos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
-  gap: 10px;
+  gap: 5px;
 }
 
-.cart_btn,
-.cart_btn1 {
+.cart_btn {
   width: auto;
   box-shadow: 1.5px 0.5px 1.5px 1.5px black;
   height: 40px;
@@ -99,8 +93,7 @@ h1 {
   background-color: transparent;
 }
 
-.cart_btn:hover,
-.cart_btn1:hover {
+.cart_btn:hover {
   scale: 1.02;
   transition: all 0.2s ease-in-out;
   border: 2px solid;

@@ -34,7 +34,6 @@ const appendsFunc = (data) => {
     let rate = document.createElement("p");
     let count = document.createElement("p");
     let id = document.createElement("p");
-    let cart_btn1 = document.createElement("img");
 
     cardDiv.className = "card_div";
     title.className = "title";
@@ -44,35 +43,19 @@ const appendsFunc = (data) => {
     category.className = "category";
     rate.className = "rate";
     count.className = "count";
-    cart_btn1.className = "cart_btn";
     img.className = "div_image";
 
-    cart_btn1.src = "./Utils/Cart.svg";
     img.src = element.image;
     title.innerText = element.title;
     id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
-    price.innerHTML = `<b><u>Price</u>: $${element.price}</b>`;
+    price.innerHTML = `<b><u>Price</u>: ₹${element.price}</b>`;
     description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
     category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
     rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
     count.innerHTML = `<b><u>Count</u>: ${element.rating.count}</b>`;
 
-    cart_btn1.addEventListener("click", function () {
-      cartArr.push(element);
-      localStorage.setItem("cartItem", JSON.stringify(cartArr));
-      if (cartArr.length && path === "/index.html") {
-        cartLength.style.display = "block";
-        cartLength.className = "cartLength-active";
-        cartLength.innerHTML = cartArr.length;
-      }
-    });
-
     rating.append(price, rate, count);
-    cardDiv.append(img, title, id, description, category, rating, cart_btn1);
+    cardDiv.append(img, title, id, description, category, rating);
     dataShow.append(cardDiv);
   });
-};
-
-const cartDisplay = () => {
-  appendsFunc(cartArr);
 };

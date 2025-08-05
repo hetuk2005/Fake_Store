@@ -1,5 +1,3 @@
-let storage = JSON.parse(sessionStorage.getItem("token"));
-
 const SubmitData = async (e) => {
   e.preventDefault();
 
@@ -9,21 +7,21 @@ const SubmitData = async (e) => {
   const pass = document.querySelector("#pass").value;
 
   let loginData = {
-    username: username,
+    email: username,
     password: pass,
   };
 
   try {
     let res = await fetch(loginAPI, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
+      headers: { "Content-Type": "application/json" },
     });
     let data = await res.json();
 
-    sessionStorage.setItem("token", JSON.stringify(data.token));
-    if (data.token) {
-      window.location = "login.html";
+    sessionStorage.setItem("token", JSON.stringify(data.accessToken));
+    if (data.accessToken) {
+      window.location = "Login.html";
     }
   } catch (error) {
     console.log("Error: ", error);

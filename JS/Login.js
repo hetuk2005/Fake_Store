@@ -9,7 +9,7 @@ const SubmitData = async (e) => {
   const pass = document.querySelector("#pass").value;
 
   let loginData = {
-    username: username,
+    email: username,
     password: pass,
   };
 
@@ -20,9 +20,9 @@ const SubmitData = async (e) => {
       body: JSON.stringify(loginData),
     });
     let data = await res.json();
+    console.log(data);
 
-    sessionStorage.setItem("token", JSON.stringify(data.token));
-    if (data.token) {
+    if (storage) {
       window.location = "Bakery.html";
     }
   } catch (error) {
