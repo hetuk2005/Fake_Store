@@ -99,9 +99,13 @@ nav {
 }
 
 ul > img {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
+  /* width: 60px; */
+  max-width: 70px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: fill;
+  margin: 5px 0;
+  border: none;
 }
 
 ul > input {
