@@ -1,22 +1,34 @@
 const api = "http://localhost:3000/products";
 
-let cartArr = JSON.parse(localStorage.getItem("cartItem")) || [];
-console.log("cartArr: ", cartArr.length);
+const storage = JSON.parse(sessionStorage.getItem("category"));
 
-const path = window.location.pathname;
-// console.log(path);
+const countCategory = () => {
+  if (!storage) return;
+  let filterSelect = document.querySelector("#filter");
 
-const cartLength = document.querySelector("span");
-if (path === "/index.html") {
-  cartLength.style.display = cartArr.length < 0 ? "none" : "block";
-  cartLength.className = cartArr.length > 0 ? "cartLength-active" : "none";
-  cartLength.innerHTML = cartArr.length > 0 ? cartArr.length : "";
-}
+  Object.keys(storage).map((key) => {
+    let options = document.createElement("option");
+    options.value = key;
+    options.innerText = key;
+    filterSelect.append(options);
+  });
+};
+
+countCategory();
 
 const Apicalling = () => {
   fetch(api)
     .then((res) => res.json())
-    .then((res) => appendsFunc(res))
+    .then((res) => {
+      let category = res.map((el) => el.category);
+      const countCategory = category.reduce((acc, fruit) => {
+        acc[fruit] = (acc[fruit] || 0) + 1;
+        return acc;
+      }, {});
+
+      sessionStorage.setItem("category", JSON.stringify(countCategory));
+      appendsFunc(res);
+    })
     .catch((err) => console.log(err));
 };
 
