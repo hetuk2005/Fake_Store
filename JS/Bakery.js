@@ -71,3 +71,17 @@ const appendsFunc = (data) => {
     dataShow.append(cardDiv);
   });
 };
+
+const searchFunc = async () => {
+  let search = document.querySelector("#search").value;
+  try {
+    let res = await fetch(api);
+    let data = await res.json;
+    let searchArr = data.filter((el) => {
+      return search === el.category || search === el.title;
+      appendsFunc(searchArr);
+    });
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
