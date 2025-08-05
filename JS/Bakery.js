@@ -28,12 +28,14 @@ const Apicalling = () => {
 
       sessionStorage.setItem("category", JSON.stringify(countCategory));
       appendsFunc(res);
+      removePlaceholder();
     })
     .catch((err) => console.log(err));
 };
 
 const appendsFunc = (data) => {
   let dataShow = document.getElementById("info");
+  dataShow.innerHTML = "";
 
   data.forEach((element) => {
     let cardDiv = document.createElement("div");
@@ -48,14 +50,15 @@ const appendsFunc = (data) => {
     let id = document.createElement("p");
 
     cardDiv.className = "card_div";
-    title.className = "title";
-    rating.className = "rating";
-    price.className = "price";
-    description.className = "description";
-    category.className = "category";
-    rate.className = "rate";
-    count.className = "count";
-    img.className = "div_image";
+    title.className = "title placeholder";
+    rating.className = "rating placeholders";
+    price.className = "price placeholder";
+    description.className = "description placeholder";
+    category.className = "category placeholder";
+    rate.className = "rate placeholder";
+    count.className = "count placeholder";
+    img.className = "div_image placeholder";
+    id.className = "placeholder";
 
     img.src = element.image;
     title.innerText = element.title;
@@ -73,15 +76,30 @@ const appendsFunc = (data) => {
 };
 
 const searchFunc = async () => {
+  console.log("I Am Invoked: ");
+
   let search = document.querySelector("#search").value;
+  console.log("Search: ", search);
+
   try {
     let res = await fetch(api);
-    let data = await res.json;
+    let data = await res.json();
     let searchArr = data.filter((el) => {
       return search === el.category || search === el.title;
-      appendsFunc(searchArr);
+      console.log("SearchArr: ", searchArr);
     });
+    appendsFunc(searchArr);
   } catch (error) {
     console.log("Error: ", error);
   }
+};
+
+const placeholder = document.querySelectorAll(".placeholder");
+
+const removePlaceholder = () => {
+  placeholder.forEach((element) => {
+    element.classList.remove("placeholder");
+  });
+
+  window.setTimeout(removePlaceholder, 4000);
 };

@@ -230,3 +230,17 @@ label {
   left: 81.9%;
   cursor: pointer;
 }
+
+.placeholder {
+  background-color: #b3b3b3;
+  color: #fff;
+  background-image: linear-gradient(to right, #999, #ccc);
+  background-size: 200% 100%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: -170% 0;
+  }
+}
