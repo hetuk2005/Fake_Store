@@ -3,11 +3,47 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page</title>
-        <link rel="stylesheet" href="./CSS/Bakery.css">
+        <title>Navbar</title>
+        <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+        nav {
+  border: 2px solid;
+  border-radius: 15px;
+}
+ul > img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+ul > input {
+  width: 270px;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  font-weight: 700;
+  font-size: larger;
+  cursor: pointer;
+}
+option,
+select {
+  font-size: large;
+  font-weight: 700;
+  width: 100px;
+  height: 30px;
+}
+select {
+  border: 2px solid;
+}
+    </style>
     </head>
-    <body onload="Apicalling()">
-        <h1>Bakery</h1>
+    <body>
         <nav>
             <ul>
                 <img src="./Utils/Bakery Logo.svg" al="Logo">
@@ -22,7 +58,5 @@
                 </select>
             </ul>
         </nav>
-        <div class="infos" id="info"></div>
     </body>
-    <script src="./JS/Bakery.js"></script>
 </html>

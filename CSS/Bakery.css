@@ -80,67 +80,6 @@ h1 {
   gap: 5px;
 }
 
-.cart_btn {
-  width: auto;
-  box-shadow: 1.5px 0.5px 1.5px 1.5px black;
-  height: 40px;
-  object-fit: contain;
-  border: 1px solid;
-  font-size: large;
-  font-weight: 700;
-  border-radius: 10px;
-  padding: 5px 10px;
-  background-color: transparent;
-}
-
-.cart_btn:hover {
-  scale: 1.02;
-  transition: all 0.2s ease-in-out;
-  border: 2px solid;
-  border-radius: 50%;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-  border: 2px solid;
-  margin: 10px 0;
-  border-radius: 60px;
-}
-
-nav > img {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-}
-
-ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  gap: 100px;
-  font-weight: 700;
-  font-size: larger;
-  padding-top: 15px;
-  cursor: pointer;
-}
-
-li {
-  border-radius: 50%;
-}
-
-li:hover {
-  border-radius: 0;
-  padding: 10px;
-  background-color: black;
-  color: whitesmoke;
-  line-height: 28px;
-  transition: all 0.7s ease-in-out;
-}
-
 button {
   height: 40px;
   border-radius: 10px;
@@ -154,61 +93,41 @@ button {
   background-color: transparent;
 }
 
-.cart {
-  /* border: 1px solid red; */
-  height: 35px;
-  width: 35px;
+nav {
+  border: 2px solid;
+  border-radius: 15px;
+}
+
+ul > img {
+  width: 70px;
+  height: 70px;
   object-fit: contain;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  transition: all 0.2s ease-in-out;
 }
 
-.profile {
-  border-radius: 50%;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+ul > input {
+  width: 270px;
 }
 
-.cart:hover,
-.submit:hover,
-.profile:hover,
-button:hover {
-  box-shadow: 1.5px 0.3px 1.5px 1.5px black;
-}
-
-.cart_btn_pag {
+ul {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
-  display: none;
+  list-style-type: none;
+  font-weight: 700;
+  font-size: larger;
+  cursor: pointer;
 }
 
-.cart_btn_pag > button,
-.checkout_btn {
-  box-shadow: 1px 0.3px 1px 1px black;
-  width: 40px;
-  height: 40px;
-  font-size: x-large;
-  font-weight: 900;
-  text-align: center;
-  background-color: transparent;
-  border-radius: 10px;
+option,
+select {
+  font-size: large;
+  font-weight: 700;
+  width: 100px;
+  height: 30px;
 }
 
-.buttonDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-
-.checkout_btn {
-  width: auto;
-  padding: 0 10px;
-  font-weight: 700 !important;
+select {
+  border: 2px solid;
 }
 
 /* ====== Form/Auth Page ====== */
