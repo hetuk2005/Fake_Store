@@ -28,7 +28,7 @@ const Apicalling = () => {
 
       sessionStorage.setItem("category", JSON.stringify(countCategory));
       appendsFunc(res);
-      removePlaceholder();
+      setTimeout(removePlaceholder, 1000);
     })
     .catch((err) => console.log(err));
 };
@@ -51,7 +51,7 @@ const appendsFunc = (data) => {
 
     cardDiv.className = "card_div";
     title.className = "title placeholder";
-    rating.className = "rating placeholders";
+    rating.className = "rating placeholder";
     price.className = "price placeholder";
     description.className = "description placeholder";
     category.className = "category placeholder";
@@ -60,8 +60,13 @@ const appendsFunc = (data) => {
     img.className = "div_image placeholder";
     id.className = "placeholder";
 
-    img.src = element.image;
-    title.innerText = element.title;
+    setTimeout(() => {
+      img.src = element.image;
+      title.innerText = element.title;
+      img.classList.remove("placeholder");
+      title.classList.remove("placeholder");
+    }, 1000);
+
     id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
     price.innerHTML = `<b><u>Price</u>: ₹${element.price}</b>`;
     description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
@@ -94,12 +99,9 @@ const searchFunc = async () => {
   }
 };
 
-const placeholder = document.querySelectorAll(".placeholder");
-
 const removePlaceholder = () => {
+  const placeholder = document.querySelectorAll(".placeholder");
   placeholder.forEach((element) => {
     element.classList.remove("placeholder");
   });
-
-  window.setTimeout(removePlaceholder, 4000);
 };

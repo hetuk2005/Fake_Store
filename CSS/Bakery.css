@@ -231,16 +231,23 @@ label {
   cursor: pointer;
 }
 
-.placeholder {
+.placeholder,
+.div_image.placeholder {
   background-color: #b3b3b3;
-  color: #fff;
   background-image: linear-gradient(to right, #999, #ccc);
   background-size: 200% 100%;
   animation: loading 1s linear infinite;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  padding: 0 10px;
 }
 
 @keyframes loading {
   to {
     background-position: -170% 0;
   }
+}
+
+.placeholder * {
+  visibility: hidden;
 }
