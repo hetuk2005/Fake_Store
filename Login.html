@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
-        <link rel="stylesheet" href="./CSS/Bakery.css">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="./CSS/Login.css">
     </head>
+
     <body>
-        <form class="form" onsubmit="SubmitData(event)">
-            <h1>Login Page</h1>
-            <section class="email">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter Username">
-            </section>
-            <section class="pass">
-                <label for="pass">Password</label>
-                <input type="password" id="pass" placeholder="Enter Password">
-            </section>
-            <input type="submit" value="submit" class="submit">
-        </form>
+
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <form onsubmit="loginForm(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="userEmail"
+                        placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="userPassword"
+                        placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="login-btn"
+                    onclick="home()">Login</button>
+                <p>Don't have an account? <a
+                        onclick="changeToRegistration()">Sign up</a></p>
+
+            </form>
+
+        </div>
+
     </body>
     <script src="./JS/Login.js"></script>
+
 </html>

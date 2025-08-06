@@ -1,34 +1,38 @@
-const SubmitData = async (e) => {
+const registerApi = `http://localhost:3000/register`;
+
+async function formData(e) {
   e.preventDefault();
 
-  const loginAPI = `http://localhost:3000/register`;
+  const email = document.querySelector("#userEmail").value.trim();
+  const password = document.querySelector("#userPassword").value.trim();
 
-  const username = document.querySelector("#username").value;
-  const pass = document.querySelector("#pass").value;
-
-  let loginData = {
-    email: username,
-    password: pass,
+  let formObject = {
+    email,
+    password,
   };
 
   try {
-    let res = await fetch(loginAPI, {
+    let response = await fetch(registerApi, {
       method: "POST",
-      body: JSON.stringify(loginData),
-      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formObject),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    let data = await res.json();
+    let data = await response.json();
 
-    sessionStorage.setItem("token", JSON.stringify(data.accessToken));
     if (data.accessToken) {
       window.location = "Login.html";
     }
   } catch (error) {
-    console.log("Error: ", error);
+    console.log("🚀 ~ error:", error);
   }
+}
+
+const changeToLogin = () => {
+  window.location = "Login.html";
 };
 
-/* 
-    johnd -> username
-    m38rmF$ -> pass    
-*/
+const loginPage = () => {
+  window.location = "Login.html";
+};

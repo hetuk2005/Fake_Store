@@ -1,36 +1,41 @@
-let storage = JSON.parse(sessionStorage.getItem("token"));
+const loginApi = `http://localhost:3000/login`;
 
-const SubmitData = async (e) => {
+async function loginForm(e) {
   e.preventDefault();
 
-  const loginAPI = `http://localhost:3000/users`;
+  const email = document.querySelector("#userEmail").value.trim();
+  const password = document.querySelector("#userPassword").value.trim();
 
-  const username = document.querySelector("#username").value;
-  const pass = document.querySelector("#pass").value;
-
-  let loginData = {
-    email: username,
-    password: pass,
+  let formObject = {
+    email,
+    password,
   };
 
   try {
-    let res = await fetch(loginAPI, {
+    let response = await fetch(loginApi, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginData),
+      body: JSON.stringify(formObject),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    let data = await res.json();
-    console.log(data);
 
-    if (storage) {
-      window.location = "Bakery.html";
+    let data = await response.json();
+    console.log("🚀 ~ data:", data);
+    sessionStorage.setItem("token", JSON.stringify(data.accessToken));
+
+    if (data.accessToken) {
+      window.location = "Home.html";
     }
   } catch (error) {
-    console.log("Error: ", error);
+    console.log("🚀 ~ error:", error);
   }
+}
+
+const changeToRegistration = () => {
+  window.location = "Registration.html";
 };
 
-/* 
-    johnd -> username
-    m38rmF$ -> pass    
-*/
+const home = () => {
+  window.location = "Bakery.html";
+};

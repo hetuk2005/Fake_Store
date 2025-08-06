@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page</title>
+        <title>Cart Page</title>
         <link rel="stylesheet" href="./CSS/Bakery.css">
     </head>
-    <body onload="Apicalling()">
+    <script src="./JS/CartB.js"></script>
+    <body onload="cartDisplay()">
         <h1>Madhur Mithai</h1>
         <nav>
             <ul>
@@ -21,15 +22,6 @@
                 </select>
             </ul>
         </nav>
-        <div class="slide">
-            <h3>Filter</h3>
-            <div id="activeFilter"></div>
-            <ul>
-                <li onclick="sortHigh(this)">High To Low</li>
-                <li onclick="sortLow(this)">Low To High</li>
-            </ul>
-        </div>
         <div class="infos" id="info"></div>
     </body>
-    <script src="./JS/Bakery.js"></script>
 </html>

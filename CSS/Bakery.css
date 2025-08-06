@@ -334,14 +334,3 @@ span {
   height: inherit;
   object-fit: contain;
 }
-
-/* height: 40px;
-  border-radius: 10px;
-  width: auto;
-  object-fit: contain;
-  cursor: pointer;
-  padding: 5px 10px;
-  transition: all 0.2s ease-in-out;
-  font-size: large;
-  font-weight: 900;
-  background-color: transparent; */

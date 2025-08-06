@@ -52,6 +52,7 @@ const appendsFunc = (data) => {
     let rate = document.createElement("p");
     let count = document.createElement("p");
     let id = document.createElement("p");
+    let cart = document.createElement("button");
 
     cardDiv.className = "card_div";
     title.className = "title placeholder";
@@ -62,6 +63,7 @@ const appendsFunc = (data) => {
     rate.className = "rate placeholder";
     count.className = "count placeholder";
     img.className = "div_image placeholder";
+    cart.className = "cart placeholder";
     id.className = "placeholder";
 
     setTimeout(() => {
@@ -73,6 +75,7 @@ const appendsFunc = (data) => {
       category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
       rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
       count.innerHTML = `<b><u>Quantity</u>: ${element.rating.count}</b>`;
+      cart.innerHTML = `Add To Cart`;
       img.classList.remove("placeholder");
       title.classList.remove("placeholder");
       id.classList.remove("placeholder");
@@ -82,10 +85,11 @@ const appendsFunc = (data) => {
       rating.classList.remove("placeholder");
       rate.classList.remove("placeholder");
       count.classList.remove("placeholder");
+      cart.classList.remove("placeholder");
     }, 1000);
 
     rating.append(price, rate, count);
-    cardDiv.append(img, title, id, description, category, rating);
+    cardDiv.append(img, title, id, description, category, rating, cart);
     dataShow.append(cardDiv);
   });
 };
@@ -178,13 +182,13 @@ const sortLow = async () => {
             <button onclick="clearFilter()"><img src="./Utils/Close.svg"></button>
             `;
   } catch (error) {
-    console.log("Error While Sorting High To Low: ", error);
+    console.log("Error While Sorting Low To High: ", error);
   }
 };
 
 const clearFilter = async () => {
+  Apicalling();
   document.querySelector("#activeFilter").innerHTML = "";
-  activeFilter.style.display = "none";
 
   try {
     const res = await fetch(api);
@@ -193,4 +197,16 @@ const clearFilter = async () => {
   } catch (error) {
     console.log("Error While Clearing Filter: ", error);
   }
+};
+
+const changeToCart = () => {
+  window.location = "CartB.html";
+};
+
+const changeToLogin = () => {
+  window.location = "Registration.html";
+};
+
+const changeToHome = () => {
+  window.location = "Bakery.html";
 };
