@@ -1,5 +1,9 @@
 const api = "http://localhost:3000/products";
 
+let logo = document.querySelector("#logo");
+
+logo = false;
+
 const storage = JSON.parse(sessionStorage.getItem("category"));
 
 const countCategory = () => {
@@ -115,7 +119,7 @@ const filterFunc = async () => {
     let res = await fetch(api);
     let data = await res.json();
     let filterArr = data.filter((el) => {
-      return search === el.category;
+      return filter === el.category;
       console.log("FilterArr: ", filterArr);
     });
     appendsFunc(filterArr);
@@ -129,4 +133,11 @@ const removePlaceholder = () => {
   placeholder.forEach((element) => {
     element.classList.remove("placeholder");
   });
+};
+
+const sidebar = () => {
+  const side = document.querySelector(".slide");
+  logo = !logo;
+  side.style.display = logo == false ? "none" : "block";
+  side.classList.toggle("active");
 };

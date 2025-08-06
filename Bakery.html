@@ -10,19 +10,27 @@
         <h1>Madhur Mithai</h1>
         <nav>
             <ul>
-                <img src="./Utils/Bakery Logo.svg" alt="Logo">
+                <img src="./Utils/Bakery Logo.svg" alt="Logo"
+                    onclick="sidebar()" id="logo">
                 <input type="search" placeholder="🔍  Search"
                     onchange="searchFunc()" id="search">
                 <li>Home</li>
                 <li>Cart</li>
                 <li>Login</li>
-                <select name="Filter" id="filter">
+                <select name="Filter" id="filter" onclick="filterFunc()">
                     <!-- <option value="Cookies">Cookies</option>
                     <option value="Cakes">Cakes</option>
                     <option value="Sweets">Sweets</option> -->
                 </select>
             </ul>
         </nav>
+        <div class="slide">
+            <h3>Filter</h3>
+            <ul>
+                <li>High To Low</li>
+                <li>Low To High</li>
+            </ul>
+        </div>
         <div class="infos" id="info"></div>
     </body>
     <script src="./JS/Bakery.js"></script>
