@@ -93,16 +93,20 @@ const appendsFunc = (data) => {
 const searchFunc = async () => {
   console.log("I Am Invoked: ");
 
-  let search = document.querySelector("#search").value;
+  let search = document.querySelector("#search").value.trim().toLowerCase();
+  // if (!search) return;
   console.log("Search: ", search);
 
   try {
     let res = await fetch(api);
     let data = await res.json();
     let searchArr = data.filter((el) => {
-      return search === el.category || search === el.title;
-      console.log("SearchArr: ", searchArr);
+      return (
+        search === el.category.toLowerCase() ||
+        search === el.title.toLowerCase()
+      );
     });
+    console.log("SearchArr: ", searchArr);
     appendsFunc(searchArr);
   } catch (error) {
     console.log("Error: ", error);
@@ -137,7 +141,56 @@ const removePlaceholder = () => {
 
 const sidebar = () => {
   const side = document.querySelector(".slide");
-  logo = !logo;
-  side.style.display = logo == false ? "none" : "block";
+  // logo = !logo;
+  // side.style.display = logo == false ? "none" : "block";
   side.classList.toggle("active");
+};
+
+const sortHigh = async () => {
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+
+    const sortedData = data.sort((a, b) => b.price - a.price);
+    appendsFunc(sortedData);
+
+    const activeFilter = document.querySelector("#activeFilter");
+    activeFilter.innerHTML = `
+            <span>High To Low</span>
+            <button onclick="clearFilter()"><img src="./Utils/Close.svg"></button>
+            `;
+  } catch (error) {
+    console.log("Error While Sorting High To Low: ", error);
+  }
+};
+
+const sortLow = async () => {
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+
+    const sortedData1 = data.sort((a, b) => a.price - b.price);
+    appendsFunc(sortedData1);
+
+    const activeFilter = document.querySelector("#activeFilter");
+    activeFilter.innerHTML = `
+            <span>Low To High</span>
+            <button onclick="clearFilter()"><img src="./Utils/Close.svg"></button>
+            `;
+  } catch (error) {
+    console.log("Error While Sorting High To Low: ", error);
+  }
+};
+
+const clearFilter = async () => {
+  document.querySelector("#activeFilter").innerHTML = "";
+  activeFilter.style.display = "none";
+
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+    appendsFunc(data);
+  } catch (error) {
+    console.log("Error While Clearing Filter: ", error);
+  }
 };
