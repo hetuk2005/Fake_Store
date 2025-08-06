@@ -63,16 +63,22 @@ const appendsFunc = (data) => {
     setTimeout(() => {
       img.src = element.image;
       title.innerText = element.title;
+      id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
+      price.innerHTML = `<b><u>Price</u>: ₹${element.price}</b>`;
+      description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
+      category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
+      rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
+      count.innerHTML = `<b><u>Quantity</u>: ${element.rating.count}</b>`;
       img.classList.remove("placeholder");
       title.classList.remove("placeholder");
+      id.classList.remove("placeholder");
+      price.classList.remove("placeholder");
+      description.classList.remove("placeholder");
+      category.classList.remove("placeholder");
+      rating.classList.remove("placeholder");
+      rate.classList.remove("placeholder");
+      count.classList.remove("placeholder");
     }, 1000);
-
-    id.innerHTML = `<b><u>ID</u>: ${element.id}</b>`;
-    price.innerHTML = `<b><u>Price</u>: ₹${element.price}</b>`;
-    description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
-    category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
-    rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
-    count.innerHTML = `<b><u>Count</u>: ${element.rating.count}</b>`;
 
     rating.append(price, rate, count);
     cardDiv.append(img, title, id, description, category, rating);
@@ -94,6 +100,25 @@ const searchFunc = async () => {
       console.log("SearchArr: ", searchArr);
     });
     appendsFunc(searchArr);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const filterFunc = async () => {
+  console.log("I Am Filtered: ");
+
+  let filter = document.querySelector("#filter").value;
+  console.log("Filter: ", filter);
+
+  try {
+    let res = await fetch(api);
+    let data = await res.json();
+    let filterArr = data.filter((el) => {
+      return search === el.category;
+      console.log("FilterArr: ", filterArr);
+    });
+    appendsFunc(filterArr);
   } catch (error) {
     console.log("Error: ", error);
   }
