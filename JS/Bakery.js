@@ -165,6 +165,7 @@ const sortHigh = async () => {
             <span>High To Low</span>
             <button onclick="clearFilter()"><img src="./Utils/Close.svg"></button>
             `;
+    document.querySelector(".slide").classList.remove("active");
   } catch (error) {
     console.log("Error While Sorting High To Low: ", error);
   }
@@ -183,6 +184,7 @@ const sortLow = async () => {
             <span>Low To High</span>
             <button onclick="clearFilter()"><img src="./Utils/Close.svg"></button>
             `;
+    document.querySelector(".slide").classList.remove("active");
   } catch (error) {
     console.log("Error While Sorting Low To High: ", error);
   }
@@ -196,6 +198,7 @@ const clearFilter = async () => {
     const res = await fetch(api);
     const data = await res.json();
     appendsFunc(data);
+    document.querySelector(".slide").classList.remove("active");
   } catch (error) {
     console.log("Error While Clearing Filter: ", error);
   }
@@ -229,10 +232,11 @@ const dataFetch = async () => {
 const updateButtons = (dataLength) => {
   document.getElementById("prev").disabled = page === 1;
   document.getElementById("next").disabled = dataLength < limit;
-  document.querySelector(".numOfPage").innerText = `Page: ${page}`; //show a current page
+  document.querySelector(".numOfPage").innerText = `Page: ${page}`; // Show A Current Page
 };
 
 // Prev button click
+
 const prevBtnInvokation = () => {
   if (page > 1) {
     page--;
@@ -241,6 +245,7 @@ const prevBtnInvokation = () => {
 };
 
 // Next button click
+
 const nextBtnInvokation = () => {
   page++;
   dataFetch();
