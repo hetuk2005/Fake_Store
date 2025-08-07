@@ -1,5 +1,9 @@
 const api = "http://localhost:3000/products";
 
+let page = 1;
+
+let limit = 6;
+
 let logo = document.querySelector("#logo");
 
 logo = false;
@@ -9,7 +13,7 @@ const storage = JSON.parse(sessionStorage.getItem("category"));
 const countCategory = () => {
   if (!storage) return;
   let filterSelect = document.querySelector("#filter");
-
+  filterSelect.innerHTML = ""; // Clear previous options if needed
   Object.keys(storage).map((key) => {
     let options = document.createElement("option");
     options.value = key;
@@ -17,8 +21,6 @@ const countCategory = () => {
     filterSelect.append(options);
   });
 };
-
-countCategory();
 
 const Apicalling = () => {
   fetch(api)
@@ -209,4 +211,42 @@ const changeToLogin = () => {
 
 const changeToHome = () => {
   window.location = "Bakery.html";
+};
+
+//Fetch paginated data
+const dataFetch = async () => {
+  try {
+    let res = await fetch(`${api}?_limit=${limit}&_page=${page}`);
+    let data = await res.json();
+    appendsFunc(data);
+    updateButtons(data.length);
+  } catch (error) {
+    console.log("Pagination Error:", error);
+  }
+};
+
+// Update Prev / Next buttons
+const updateButtons = (dataLength) => {
+  document.getElementById("prev").disabled = page === 1;
+  document.getElementById("next").disabled = dataLength < limit;
+  document.querySelector(".numOfPage").innerText = `Page: ${page}`; //show a current page
+};
+
+// Prev button click
+const prevBtnInvokation = () => {
+  if (page > 1) {
+    page--;
+    dataFetch();
+  }
+};
+
+// Next button click
+const nextBtnInvokation = () => {
+  page++;
+  dataFetch();
+};
+
+window.onload = () => {
+  Apicalling(); // for category dropdown
+  dataFetch(); // for initial paginated data
 };

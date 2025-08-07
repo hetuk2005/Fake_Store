@@ -7,20 +7,7 @@
         <link rel="stylesheet" href="./CSS/Bakery.css">
     </head>
     <body onload="Apicalling()">
-        <h1>Madhur Mithai</h1>
-        <nav>
-            <ul>
-                <img src="./Utils/Bakery Logo.svg" alt="Logo"
-                    onclick="sidebar()" id="logo">
-                <input type="search" placeholder="🔍  Search"
-                    onchange="searchFunc()" id="search">
-                <li onclick="changeToHome()">Home</li>
-                <li onclick="changeToCart()">Cart</li>
-                <li onclick="changeToLogin()">Sign-Up/Login</li>
-                <select name="Filter" id="filter" onclick="filterFunc()">
-                </select>
-            </ul>
-        </nav>
+        <div id="nav"></div>
         <div class="slide">
             <h3>Filter</h3>
             <div id="activeFilter"></div>
@@ -30,6 +17,25 @@
             </ul>
         </div>
         <div class="infos" id="info"></div>
+        <div class="btn">
+            <button id="prev" onclick="prevBtnInvokation()">Previous</button>
+            <span class="numOfPage">Page: 1</span>
+            <button id="next" onclick="nextBtnInvokation()">Next</button>
+        </div>
     </body>
+    <script type="module">
+        import{navbar,style} from "./JS/Import_Export.js";
+        document.addEventListener('DOMContentLoaded',()=>{
+        const styleTag = document.createElement("style");
+        styleTag.textContent = style();
+        document.head.appendChild(styleTag);
+      document.querySelector("#nav").innerHTML = navbar();
+
+  setTimeout(() => {
+    countCategory(); // Now #filter exists
+  }, 0);
+     })
+    </script>
     <script src="./JS/Bakery.js"></script>
+
 </html>

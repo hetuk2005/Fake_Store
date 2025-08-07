@@ -99,51 +99,6 @@ button {
   background-color: transparent;
 }
 
-nav {
-  border: 2px solid;
-  border-radius: 15px;
-}
-
-ul > img {
-  max-width: 70px;
-  height: 65px;
-  border-radius: 50%;
-  object-fit: fill;
-  margin: 5px 0;
-  border: none;
-}
-
-ul > input {
-  width: 270px;
-  border: 2px solid;
-}
-
-ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
-  font-weight: 700;
-  font-size: larger;
-  cursor: pointer;
-}
-
-option,
-select {
-  font-size: large;
-  font-weight: 700;
-  width: 100px;
-  height: 30px;
-  cursor: pointer;
-}
-
-select {
-  padding: 0 3px;
-  padding-top: 2px;
-  border-radius: 10px;
-  border: 2px solid;
-}
-
 /* ====== Form/Auth Page ====== */
 
 .form {
@@ -333,4 +288,24 @@ span {
 #activeFilter > button > img {
   height: inherit;
   object-fit: contain;
+}
+
+#prev,
+#next {
+  width: 150px;
+  background-color: #fff;
+  border: 2px solid;
+}
+
+.numOfPage {
+  font-weight: 800;
+  font-size: larger;
+  background-color: transparent;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
