@@ -1,4 +1,4 @@
-const api = "http://localhost:3000/products";
+const api = "http://localhost:3500/products";
 
 let page = 1;
 
@@ -8,7 +8,19 @@ let logo = document.querySelector("#logo");
 
 logo = false;
 
+let allProducts;
+
 const storage = JSON.parse(sessionStorage.getItem("category"));
+
+// const path = window.location.pathname;
+// console.log(path);
+
+// const cartLength = document.querySelector("span");
+// if (path === "/Bakery.html") {
+//   cartLength.style.display = cartArr.length < 0 ? "none" : "block";
+//   cartLength.className = cartArr.length > 0 ? "cartLength-active" : "none";
+//   cartLength.innerHTML = cartArr.length > 0 ? cartArr.length : "";
+// }
 
 const countCategory = () => {
   if (!storage) return;
@@ -42,6 +54,8 @@ const Apicalling = () => {
 const appendsFunc = (data) => {
   let dataShow = document.getElementById("info");
   dataShow.innerHTML = "";
+
+  allProducts = data;
 
   data.forEach((element) => {
     let cardDiv = document.createElement("div");
@@ -90,9 +104,26 @@ const appendsFunc = (data) => {
       cart.classList.remove("placeholder");
     }, 1000);
 
+    cart.addEventListener("click", () => addToCart(element));
+
     rating.append(price, rate, count);
     cardDiv.append(img, title, id, description, category, rating, cart);
     dataShow.append(cardDiv);
+  });
+};
+
+const addToCart = async (element) => {
+  // const product = allProducts.find((p) => p.id === id);
+  console.log(element);
+
+  let api = `http://localhost:3500/cart`;
+
+  let response = await fetch(api, {
+    method: "POST",
+    body: JSON.stringify(element),
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 };
 

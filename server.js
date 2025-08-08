@@ -2,6 +2,7 @@
 const jsonServer = require("json-server");
 const auth = require("json-server-auth");
 const cors = require("cors");
+const port = 3500;
 
 const app = jsonServer.create();
 const router = jsonServer.router("db.json");
@@ -18,6 +19,6 @@ app.use(auth);
 app.use(router);
 
 // Start server
-app.listen(3000, () => {
-  console.log("JSON Server is running on http://localhost:3000");
+app.listen(port, () => {
+  console.log(`JSON Server is running on http://localhost:${port}`);
 });
