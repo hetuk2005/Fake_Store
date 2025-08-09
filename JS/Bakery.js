@@ -51,11 +51,20 @@ const Apicalling = () => {
     .catch((err) => console.log(err));
 };
 
-const appendsFunc = (data) => {
+const appendsFunc = async (data) => {
   let dataShow = document.getElementById("info");
   dataShow.innerHTML = "";
 
   allProducts = data;
+
+  let cartData = [];
+
+  try {
+    let cartRes = await fetch("http://localhost:3500/cart");
+    cartData = await cartRes.json();
+  } catch (error) {
+    cartData = [];
+  }
 
   data.forEach((element) => {
     let cardDiv = document.createElement("div");
@@ -69,6 +78,8 @@ const appendsFunc = (data) => {
     let count = document.createElement("p");
     let id = document.createElement("p");
     let cart = document.createElement("button");
+    let cartItem = cartData.find((c) => c.id === element.id);
+    let quantity = cartItem ? cartItem.quantity : 0;
 
     cardDiv.className = "card_div";
     title.className = "title placeholder";
@@ -90,7 +101,7 @@ const appendsFunc = (data) => {
       description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
       category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
       rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
-      count.innerHTML = `<b><u>Quantity</u>: 0</b>`;
+      count.innerHTML = `<b><u>Quantity</u>: ${quantity}</b>`;
       cart.innerHTML = `Add To Cart`;
       img.classList.remove("placeholder");
       title.classList.remove("placeholder");
@@ -112,13 +123,13 @@ const appendsFunc = (data) => {
   });
 };
 
-const addToCart = async (element) => {
+const addToCart = async (element, countElement) => {
   // const product = allProducts.find((p) => p.id === id);
   // console.log(element);
 
-  let api = `http://localhost:3500/cart`;
+  let api_cart = `http://localhost:3500/cart`;
 
-  const res = await fetch(`${api}?id=${element.id}`);
+  const res = await fetch(`${api_cart}?id=${element.id}`);
   const data = await res.json();
 
   if (data.length) {
@@ -127,7 +138,7 @@ const addToCart = async (element) => {
       quantity: (data[0].quantity || 1) + 1,
     };
 
-    await fetch(`${api}/${data[0].id}`, {
+    await fetch(`${api_cart}/${data[0].id}`, {
       method: "PUT",
       body: JSON.stringify(updated),
       headers: {
@@ -135,15 +146,20 @@ const addToCart = async (element) => {
       },
     });
 
-    alert("Quantity Added To Cart");
+    if (countElement)
+      countElement.innerHTML = `<b><u>Quantity</u>: ${updated.quantity}</b>`;
+
+    alert("Added To Cart");
   } else {
-    await fetch(api, {
+    await fetch(api_cart, {
       method: "POST",
       body: JSON.stringify({ ...element, quantity: 1 }),
       headers: {
         "Content-Type": "application/json",
       },
     });
+
+    if (countElement) countElement.innerHTML = `<b><u>Quantity</u>: 1</b>`;
 
     alert("Item Added To Cart!");
   }
@@ -166,7 +182,7 @@ const searchFunc = async () => {
       );
     });
     console.log("SearchArr: ", searchArr);
-    appendsFunc(searchArr);
+    await appendsFunc(searchArr);
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -185,7 +201,7 @@ const filterFunc = async () => {
       return filter === el.category;
       console.log("FilterArr: ", filterArr);
     });
-    appendsFunc(filterArr);
+    await appendsFunc(filterArr);
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -211,7 +227,7 @@ const sortHigh = async () => {
     const data = await res.json();
 
     const sortedData = data.sort((a, b) => b.price - a.price);
-    appendsFunc(sortedData);
+    await appendsFunc(sortedData);
 
     const activeFilter = document.querySelector("#activeFilter");
     activeFilter.innerHTML = `
@@ -230,7 +246,7 @@ const sortLow = async () => {
     const data = await res.json();
 
     const sortedData1 = data.sort((a, b) => a.price - b.price);
-    appendsFunc(sortedData1);
+    await appendsFunc(sortedData1);
 
     const activeFilter = document.querySelector("#activeFilter");
     activeFilter.innerHTML = `
@@ -250,7 +266,7 @@ const clearFilter = async () => {
   try {
     const res = await fetch(api);
     const data = await res.json();
-    appendsFunc(data);
+    await appendsFunc(data);
     document.querySelector(".slide").classList.remove("active");
   } catch (error) {
     console.log("Error While Clearing Filter: ", error);
@@ -274,7 +290,7 @@ const dataFetch = async () => {
   try {
     let res = await fetch(`${api}?_limit=${limit}&_page=${page}`);
     let data = await res.json();
-    appendsFunc(data);
+    await appendsFunc(data);
     updateButtons(data.length);
   } catch (error) {
     console.log("Pagination Error:", error);
@@ -305,6 +321,6 @@ const nextBtnInvokation = () => {
 };
 
 window.onload = () => {
-  Apicalling(); // for category dropdown
+  // Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
 };
