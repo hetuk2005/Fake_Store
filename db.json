@@ -28,18 +28,6 @@
   ],
   "cart": [
     {
-      "id": 3,
-      "title": "Christmas, Cookie",
-      "price": 100,
-      "description": "A balanced diet is a cookie in each hand.",
-      "category": "Cookies",
-      "image": "https://cdn.pixabay.com/photo/2021/12/09/14/22/christmas-6858261_1280.jpg",
-      "rating": {
-        "rate": 4.7,
-        "count": 500
-      }
-    },
-    {
       "id": 2,
       "title": "Gingerbread, Cookies ",
       "price": 200,
@@ -49,67 +37,8 @@
       "rating": {
         "rate": 4.1,
         "count": 259
-      }
-    },
-    {
-      "id": 1,
-      "title": "Macaron Pink",
-      "price": 100,
-      "description": "A balanced diet is a cookie in each hand.",
-      "category": "Cookies",
-      "image": "https://cdn.pixabay.com/photo/2019/11/03/11/25/macaron-4598410_1280.jpg",
-      "rating": {
-        "rate": 3.9,
-        "count": 120
-      }
-    },
-    {
-      "id": 14,
-      "title": "Rasmalai",
-      "price": 250,
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, eius. Deserunt, sunt atque.",
-      "category": "Cake",
-      "image": "https://bakewithshivesh.com/wp-content/uploads/2021/04/IMG_3929-scaled.jpg",
-      "rating": {
-        "rate": 2.1,
-        "count": 1
-      }
-    },
-    {
-      "id": 6,
-      "title": "Chocolate Bake ",
-      "price": 168,
-      "description": "A balanced diet is a cookie in each hand.",
-      "category": "Cookies",
-      "image": "https://cdn.pixabay.com/photo/2019/12/15/17/06/chocolate-4697591_1280.jpg",
-      "rating": {
-        "rate": 3.9,
-        "count": 70
-      }
-    },
-    {
-      "id": 4,
-      "title": "Sweet Food,",
-      "price": 150,
-      "description": "A balanced diet is a cookie in each hand.",
-      "category": "Cookies",
-      "image": "https://cdn.pixabay.com/photo/2018/05/21/20/55/sweet-3419470_1280.jpg",
-      "rating": {
-        "rate": 2.1,
-        "count": 430
-      }
-    },
-    {
-      "id": 5,
-      "title": "Cookie Christmas",
-      "price": 100,
-      "description": "A balanced diet is a cookie in each hand.",
-      "category": "Cookies",
-      "image": "https://cdn.pixabay.com/photo/2016/01/07/10/23/cookie-1125527_1280.jpg",
-      "rating": {
-        "rate": 4.6,
-        "count": 400
-      }
+      },
+      "quantity": 2
     }
   ],
   "products": [

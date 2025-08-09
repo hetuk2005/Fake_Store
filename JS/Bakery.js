@@ -90,7 +90,7 @@ const appendsFunc = (data) => {
       description.innerHTML = `<b><u>Description</u>: ${element.description}</b>`;
       category.innerHTML = `<b><u>Category</u>: ${element.category}</b>`;
       rate.innerHTML = `<b><u>Rate</u>: ${element.rating.rate} Stars</b>`;
-      count.innerHTML = `<b><u>Quantity</u>: ${element.rating.count}</b>`;
+      count.innerHTML = `<b><u>Quantity</u>: 0</b>`;
       cart.innerHTML = `Add To Cart`;
       img.classList.remove("placeholder");
       title.classList.remove("placeholder");
@@ -104,7 +104,7 @@ const appendsFunc = (data) => {
       cart.classList.remove("placeholder");
     }, 1000);
 
-    cart.addEventListener("click", () => addToCart(element));
+    cart.addEventListener("click", () => addToCart(element, count));
 
     rating.append(price, rate, count);
     cardDiv.append(img, title, id, description, category, rating, cart);
@@ -114,17 +114,39 @@ const appendsFunc = (data) => {
 
 const addToCart = async (element) => {
   // const product = allProducts.find((p) => p.id === id);
-  console.log(element);
+  // console.log(element);
 
   let api = `http://localhost:3500/cart`;
 
-  let response = await fetch(api, {
-    method: "POST",
-    body: JSON.stringify(element),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(`${api}?id=${element.id}`);
+  const data = await res.json();
+
+  if (data.length) {
+    const updated = {
+      ...data[0],
+      quantity: (data[0].quantity || 1) + 1,
+    };
+
+    await fetch(`${api}/${data[0].id}`, {
+      method: "PUT",
+      body: JSON.stringify(updated),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    alert("Quantity Added To Cart");
+  } else {
+    await fetch(api, {
+      method: "POST",
+      body: JSON.stringify({ ...element, quantity: 1 }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    alert("Item Added To Cart!");
+  }
 };
 
 const searchFunc = async () => {
