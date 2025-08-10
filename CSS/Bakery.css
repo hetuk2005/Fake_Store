@@ -175,6 +175,17 @@ label {
   box-shadow: 4px 4px 10px 2px black;
 }
 
+.count {
+  text-align: center;
+  font-size: larger;
+  font-weight: 700;
+}
+.buttonDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
 /* ====== Cart Page ===== */
 
 .cartLength-active {

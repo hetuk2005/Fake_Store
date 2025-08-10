@@ -6,11 +6,11 @@
         <title>Cart Page</title>
         <link rel="stylesheet" href="./CSS/Bakery.css">
     </head>
-    <script src="./JS/CartB.js"></script>
-    <body onload="cartDisplay()">
+    <body>
         <div id="nav"></div>
         <div class="infos" id="info"></div>
     </body>
+    <script src="./JS/CartB.js"></script>
     <script type="module">
         import{navbar,style} from "./JS/Import_Export.js";
         document.addEventListener('DOMContentLoaded',()=>{
@@ -20,7 +20,8 @@
       document.querySelector("#nav").innerHTML = navbar();
 
   setTimeout(() => {
-    countCategory(); // Now #filter exists
+    // countCategory(); // Now #filter exists
+    fetchCart();
   }, 0);
      })
     </script>

@@ -189,10 +189,10 @@ const searchFunc = async () => {
 };
 
 const filterFunc = async () => {
-  console.log("I Am Filtered: ");
+  // console.log("I Am Filtered: ");
 
   let filter = document.querySelector("#filter").value;
-  console.log("Filter: ", filter);
+  // console.log("Filter: ", filter);
 
   try {
     let res = await fetch(api);
@@ -321,6 +321,7 @@ const nextBtnInvokation = () => {
 };
 
 window.onload = () => {
-  // Apicalling(); // for category dropdown
+  Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
+  countCategory();
 };
