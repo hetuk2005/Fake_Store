@@ -149,7 +149,7 @@ const addToCart = async (element, countElement) => {
     if (countElement)
       countElement.innerHTML = `<b><u>Quantity</u>: ${updated.quantity}</b>`;
 
-    alert("Added To Cart");
+    // alert("Quantity Updated To Cart");
   } else {
     await fetch(api_cart, {
       method: "POST",
@@ -161,7 +161,7 @@ const addToCart = async (element, countElement) => {
 
     if (countElement) countElement.innerHTML = `<b><u>Quantity</u>: 1</b>`;
 
-    alert("Item Added To Cart!");
+    // alert("Item Added To Cart!");
   }
 };
 
@@ -321,7 +321,7 @@ const nextBtnInvokation = () => {
 };
 
 window.onload = () => {
-  Apicalling(); // for category dropdown
-  dataFetch(); // for initial paginated data
+  // Apicalling(); // for category dropdown
   countCategory();
+  dataFetch(); // for initial paginated data
 };

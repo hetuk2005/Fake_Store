@@ -8,6 +8,7 @@
     </head>
     <body>
         <div id="nav"></div>
+        <!-- <select id="filter"></select> -->
         <div class="infos" id="info"></div>
     </body>
     <script src="./JS/CartB.js"></script>
@@ -20,7 +21,7 @@
       document.querySelector("#nav").innerHTML = navbar();
 
   setTimeout(() => {
-    // countCategory(); // Now #filter exists
+    countCategory(); // Now #filter exists
     fetchCart();
   }, 0);
      })
