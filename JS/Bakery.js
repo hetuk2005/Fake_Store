@@ -6,6 +6,8 @@ let limit = 6;
 
 let logo = document.querySelector("#logo");
 
+let api_cart = `http://localhost:3500/cart`;
+
 logo = false;
 
 let allProducts;
@@ -45,6 +47,7 @@ const Apicalling = () => {
       }, {});
 
       sessionStorage.setItem("category", JSON.stringify(countCategory));
+      countCategory();
       appendsFunc(res);
       setTimeout(removePlaceholder, 1000);
     })
@@ -127,8 +130,6 @@ const addToCart = async (element, countElement) => {
   // const product = allProducts.find((p) => p.id === id);
   // console.log(element);
 
-  let api_cart = `http://localhost:3500/cart`;
-
   const res = await fetch(`${api_cart}?id=${element.id}`);
   const data = await res.json();
 
@@ -148,6 +149,7 @@ const addToCart = async (element, countElement) => {
 
     if (countElement)
       countElement.innerHTML = `<b><u>Quantity</u>: ${updated.quantity}</b>`;
+    cart_num();
 
     // alert("Quantity Updated To Cart");
   } else {
@@ -160,6 +162,7 @@ const addToCart = async (element, countElement) => {
     });
 
     if (countElement) countElement.innerHTML = `<b><u>Quantity</u>: 1</b>`;
+    cart_num();
 
     // alert("Item Added To Cart!");
   }
@@ -320,8 +323,24 @@ const nextBtnInvokation = () => {
   dataFetch();
 };
 
+const cart_num = async () => {
+  if (window.location.pathname.split("/").pop() === "CartB.html") return;
+
+  try {
+    let res = await fetch(`${api_cart}`);
+    let cartData = await res.json();
+
+    let total = cartData.reduce((sum, item) => {
+      return sum + (item.quantity || 0);
+    }, 0);
+    document.querySelector("#cart_num").innerHTML = total;
+  } catch (error) {
+    console.log("Error updating cart total:", error);
+  }
+};
+
 window.onload = () => {
-  // Apicalling(); // for category dropdown
-  countCategory();
+  Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
+  cart_num();
 };

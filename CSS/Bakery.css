@@ -163,6 +163,10 @@ label {
   grid-template-columns: repeat(3, 1fr);
 }
 
+h2 {
+  text-align: center;
+}
+
 .cardDiv {
   display: flex;
   flex-direction: column;
@@ -187,22 +191,6 @@ label {
 }
 
 /* ====== Cart Page ===== */
-
-.cartLength-active {
-  text-align: center;
-  font-size: x-small;
-  font-weight: 900;
-  padding: 3px 1.5px;
-  position: absolute;
-  top: 73px;
-  border-radius: 50%;
-  background: tomato;
-  color: whitesmoke;
-  height: 18px;
-  width: 18px;
-  left: 61.9%;
-  cursor: pointer;
-}
 
 .placeholder,
 .div_image.placeholder {

@@ -18,8 +18,7 @@
         const styleTag = document.createElement("style");
         styleTag.textContent = style();
         document.head.appendChild(styleTag);
-      document.querySelector("#nav").innerHTML = navbar();
-
+      document.querySelector("#nav").innerHTML = navbar({ showCart: false });
   setTimeout(() => {
     countCategory(); // Now #filter exists
     fetchCart();

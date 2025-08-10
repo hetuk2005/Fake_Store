@@ -1,4 +1,4 @@
-export const navbar = () => {
+export const navbar = ({ showCart = true } = {}) => {
   return `
         <h1>Madhur Mithai</h1>
         <nav>
@@ -8,7 +8,14 @@ export const navbar = () => {
                 <input type="search" placeholder="🔍  Search"
                     onchange="searchFunc()" id="search">
                 <li onclick="changeToHome()">Home</li>
-                <li onclick="changeToCart()">Cart</li>
+                <li onclick="changeToCart()">
+                          Cart
+                    ${
+                      showCart
+                        ? `<span id="cart_num"></span>
+                        </li>`
+                        : ""
+                    }
                 <li onclick="changeToLogin()">Sign-Up/Login</li>
                 <select name="Filter" id="filter" onclick="filterFunc()">
                 </select>
@@ -79,6 +86,22 @@ select {
   padding-top: 2px;
   border-radius: 10px;
   border: 2px solid;
+}
+  
+  #cart_num {
+  text-align: center;
+  font-size: small;
+  font-weight: 900;
+  padding: 2px 1.5px;
+  position: absolute;
+  top: 74.5px;
+  border-radius: 50%;
+  background: tomato;
+  color: whitesmoke;
+  height: 18px;
+  width: 18px;
+  left: 61.9%;
+  cursor: pointer;
 }
 `;
 };

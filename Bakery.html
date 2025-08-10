@@ -23,8 +23,10 @@
             <button id="next" onclick="nextBtnInvokation()">Next</button>
         </div>
     </body>
+    <script src="./JS/Bakery.js"></script>
     <script type="module">
         import{navbar,style} from "./JS/Import_Export.js";
+        navbar({ showCart: true });
         document.addEventListener('DOMContentLoaded',()=>{
         const styleTag = document.createElement("style");
         styleTag.textContent = style();
@@ -36,6 +38,5 @@
   }, 0);
      })
     </script>
-    <script src="./JS/Bakery.js"></script>
 
 </html>
