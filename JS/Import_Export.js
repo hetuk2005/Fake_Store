@@ -1,6 +1,6 @@
 export const navbar = ({ showCart = true } = {}) => {
   return `
-        <h1>Madhur Mithai</h1>
+        <h1 onclick="changeToHome()">Madhur Mithai</h1>
         <nav>
             <ul>
                 <img src="./Utils/Bakery Logo.svg" alt="Logo"
