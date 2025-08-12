@@ -1,30 +1,5 @@
 {
   "users": [
-    {
-      "email": "mehfoozkhan@gmail.com",
-      "password": "$2a$10$TwpiVkgBw/6KNQQfexhGZ.NPyE7CFq0KvHtVKKfMEf0NYyVhVr/LG",
-      "id": 1
-    },
-    {
-      "email": "mehfoozkhan11@gmail.com",
-      "password": "$2a$10$5UwPy7v.cSWGcE0Dv.ah8uTjgJzpkeiuQ3..A4BwKAUkfi9tbmgcy",
-      "id": 2
-    },
-    {
-      "email": "hetukp12@gmail.com",
-      "password": "$2a$10$EMpVVkLmZ70OlZLI86TJ2OCPye26r.Zzh3Hw7H.hceZphvsD1vxG2",
-      "id": 3
-    },
-    {
-      "email": "sai.kamble0729@gmail.com",
-      "password": "$2a$10$GqaJ1I.bLYadOKqf5nA9juRfxPx7EvSBiBA.iRtIDPNjY8jY.7J5q",
-      "id": 4
-    },
-    {
-      "email": "hetuk663@gmail.com",
-      "password": "$2a$10$Kun/j1z636dwBcbPK4GVGub8vABZEaiUGnvfYnSh.5GEMHbdwUXj.",
-      "id": 5
-    }
   ],
   "cart": [
     {

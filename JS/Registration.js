@@ -3,8 +3,84 @@ const registerApi = `http://localhost:3000/register`;
 async function formData(e) {
   e.preventDefault();
 
-  const email = document.querySelector("#userEmail").value.trim();
-  const password = document.querySelector("#userPassword").value.trim();
+  let username = document.querySelector("#user").value;
+  let password = document.querySelector("#pass").value;
+  let confirm_password = document.querySelector("#confirmpass").value;
+  let email = document.querySelector("#email").value;
+
+  // Username Validation
+
+  if (username == "") {
+    document.getElementById("user_message").innerHTML =
+      "Please Fill The Full Name Field";
+    return false;
+  } else if (!isNaN(username)) {
+    document.getElementById("user_message").innerHTML =
+      "Only Charaters Allowed";
+    return false;
+  }
+
+  // Email Validation
+
+  if (email === "") {
+    document.getElementById("email_message").innerHTML =
+      "Please Fill The Email Field";
+    return false;
+  } else if (
+    email.charAt(email.length - 4) !== "." &&
+    email.charAt(email.length - 3) !== "."
+  ) {
+    document.getElementById("email_message").innerHTML = "Invalid Email Domain";
+    return false;
+  } else if (email.indexOf("@") <= 0) {
+    document.getElementById("email_message").innerHTML = "Invalid Email";
+    return false;
+  }
+
+  // Password Validation
+
+  if (password !== null) {
+    if (password.trim() === "") {
+      document.getElementById("pass_message").innerHTML =
+        "Please Enter The Value";
+    } else if (password.length > 8 && password.length > 20) {
+      document.getElementById("pass_message").innerHTML =
+        "Please Enter The Corrected Length";
+    } else {
+      const UpperCase = /[A-Z]/.test(password);
+      const LowerCase = /[a-z]/.test(password);
+      const NumCase = /[0-9]/.test(password);
+      // const SpecialCase = /[!@#$%^&*\,.?":{}|<>]/.test(password);
+      if (!UpperCase) {
+        document.getElementById("pass_message").innerHTML =
+          "Please Enter The One Upper Case In Password";
+      } else if (!LowerCase) {
+        document.getElementById("pass_message").innerHTML =
+          "Please Enter The One Lower Case In Password";
+      } else if (!NumCase) {
+        document.getElementById("pass_message").innerHTML =
+          "Please Enter The One Number In Password";
+      } // else if (!SpecialCase) {
+      //   document.getElementById("pass_message").innerHTML =
+      //     "Please Enter The One Special Charater Case In Password"
+      // }
+    }
+  } else if (password != confirm_password) {
+    document.getElementById("pass_message").innerHTML =
+      "Password Not Matched With Confired Password";
+    return false;
+  }
+
+  // Confirm Password Validation
+
+  if (confirm_password == "") {
+    document.getElementById("confirmpass_message").innerHTML =
+      "Please Fill The Confirm Password Field";
+    return false;
+  } else {
+    document.getElementById("confirmpass_message").innerHTML =
+      "Register Successful";
+  }
 
   let formObject = {
     email,
@@ -28,10 +104,6 @@ async function formData(e) {
     console.log("🚀 ~ error:", error);
   }
 }
-
-const changeToLogin = () => {
-  window.location = "Login.html";
-};
 
 const loginPage = () => {
   window.location = "Login.html";
