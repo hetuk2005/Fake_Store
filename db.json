@@ -1,5 +1,10 @@
 {
   "users": [
+    {
+      "email": "hetukpatel429@gmail.com",
+      "password": "$2a$10$umDSwDz2c6f.fgrwJKQ9MODg5HIcjruQ3Sny6xNAJZUr8uwzv1za.",
+      "id": 1
+    }
   ],
   "cart": [
     {

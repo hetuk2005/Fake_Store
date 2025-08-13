@@ -1,4 +1,4 @@
-const registerApi = `http://localhost:3000/register`;
+const registerApi = `http://localhost:3500/register`;
 
 async function formData(e) {
   e.preventDefault();
@@ -80,31 +80,35 @@ async function formData(e) {
   } else {
     document.getElementById("confirmpass_message").innerHTML =
       "Register Successful";
-  }
 
-  let formObject = {
-    email,
-    password,
-  };
+    let formObject = {
+      email,
+      password,
+    };
 
-  try {
-    let response = await fetch(registerApi, {
-      method: "POST",
-      body: JSON.stringify(formObject),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let data = await response.json();
+    try {
+      let response = await fetch(registerApi, {
+        method: "POST",
+        body: JSON.stringify(formObject),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let data = await response.json();
 
-    if (data.accessToken) {
-      window.location = "Login.html";
+      if (data.accessToken) {
+        window.location = "Login.html";
+      }
+    } catch (error) {
+      console.log("🚀 ~ error:", error);
     }
-  } catch (error) {
-    console.log("🚀 ~ error:", error);
+
+    let submit = document.querySelector("#submit");
+
+    submit = window.location = "Login.html";
+
+    const loginPage = () => {
+      window.location = "Login.html";
+    };
   }
 }
-
-const loginPage = () => {
-  window.location = "Login.html";
-};
