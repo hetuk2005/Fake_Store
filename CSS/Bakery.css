@@ -24,12 +24,17 @@ a {
   gap: 20px;
   flex-direction: column;
   width: 90%;
-  padding: 20px;
+  /* padding: 20px; */
   padding-bottom: 30px;
   margin: 20px;
   border-radius: 20px;
   background-color: whitesmoke;
   /* border: 2px solid red; */
+  transition: all 0.2s ease-in-out;
+}
+
+.card_div:hover {
+  transform: scale(1.03);
 }
 
 h1 {
@@ -39,10 +44,11 @@ h1 {
 }
 
 .div_image {
-  width: inherit;
-  height: 230px;
+  width: 100%;
+  height: 270px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   object-fit: cover;
-  transition: all 0.5s ease-in-out;
 }
 
 .title {
@@ -86,21 +92,54 @@ h1 {
   gap: 5px;
 }
 
+#prev,
+#next {
+  width: 150px;
+  background-color: #fff;
+  border: 2px solid;
+  z-index: 1;
+}
+
 button {
   height: 40px;
   border-radius: 10px;
-  width: auto;
-  object-fit: contain;
+  width: max-content;
   cursor: pointer;
   padding: 5px 10px;
   transition: all 0.2s ease-in-out;
   font-size: large;
   font-weight: 900;
   background-color: transparent;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  position: relative;
 }
 
-input::placeholder {
-  color: #000;
+button::before,
+#prev::before,
+#next::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #212121;
+  transition: all 0.2s ease-in-out;
+  z-index: -1;
+}
+
+button:hover,
+#prev:hover,
+#next:hover {
+  color: #fff;
+}
+
+button:hover::before,
+#prev:hover::before,
+#next:hover::before {
+  width: 100%;
 }
 
 /* ====== Form/Auth Page ====== */
@@ -188,6 +227,7 @@ h2 {
   font-size: larger;
   font-weight: 700;
 }
+
 .buttonDiv {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -292,13 +332,6 @@ span {
 #activeFilter > button > img {
   height: inherit;
   object-fit: contain;
-}
-
-#prev,
-#next {
-  width: 150px;
-  background-color: #fff;
-  border: 2px solid;
 }
 
 .numOfPage {

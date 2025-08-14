@@ -49,8 +49,8 @@ nav {
 }
 
 ul > img {
-  max-width: 70px;
-  height: 65px;
+  max-width: 60px;
+  height: 55px;
   border-radius: 50%;
   object-fit: fill;
   margin: 5px 0;
