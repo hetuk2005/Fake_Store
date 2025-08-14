@@ -99,6 +99,10 @@ button {
   background-color: transparent;
 }
 
+input::placeholder {
+  color: #000;
+}
+
 /* ====== Form/Auth Page ====== */
 
 .form {
@@ -130,8 +134,8 @@ button {
 }
 
 input {
-  padding: 7px;
-  font-size: 17px;
+  padding: 7px 11px;
+  font-size: 12px;
   border-radius: 7px;
   border: 0.5px solid gray;
   text-transform: capitalize;

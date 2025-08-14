@@ -339,8 +339,26 @@ const cart_num = async () => {
   }
 };
 
+let text = "🔍  Search For What You Want";
+let input;
+let i = 0;
+
+const typePlaceholder = () => {
+  if (!input) return;
+  if (i <= text.length) {
+    input.setAttribute("placeholder", text.substring(0, i));
+    i++;
+    setTimeout(typePlaceholder, 100);
+  } else {
+    i = 0;
+    setTimeout(typePlaceholder, 1100);
+  }
+};
+
 window.onload = () => {
+  input = document.querySelector("#search");
   Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
   cart_num();
+  typePlaceholder();
 };

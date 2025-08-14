@@ -5,7 +5,7 @@ export const navbar = ({ showCart = true } = {}) => {
             <ul>
                 <img src="./Utils/Bakery Logo.svg" alt="Logo"
                     onclick="sidebar()" id="logo">
-                <input type="search" placeholder="🔍  Search"
+                <input type="search" placeholder=""
                     onchange="searchFunc()" id="search">
                 <li onclick="changeToHome()">Home</li>
                 <li onclick="changeToCart()">
