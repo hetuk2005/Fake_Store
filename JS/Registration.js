@@ -1,5 +1,9 @@
 const registerApi = `http://localhost:3500/register`;
 
+document.querySelector("#loginPage").addEventListener("click", function () {
+  window.location = "Login.html";
+});
+
 async function formData(e) {
   e.preventDefault();
 
@@ -106,9 +110,5 @@ async function formData(e) {
     let submit = document.querySelector("#submit");
 
     submit = window.location = "Login.html";
-
-    const loginPage = () => {
-      window.location = "Login.html";
-    };
   }
 }

@@ -1,5 +1,9 @@
 const loginApi = `http://localhost:3500/login`;
 
+document.querySelector("#changeTo").addEventListener("click", function () {
+  window.location = "Registration.html";
+});
+
 async function loginForm(e) {
   e.preventDefault();
 
@@ -87,8 +91,4 @@ async function loginForm(e) {
   let submit = document.querySelector(".login-btn");
 
   submit = window.location = "Bakery.html";
-
-  const changeToRegistration = () => {
-    window.location = "Registration.html";
-  };
 }
