@@ -13,6 +13,14 @@ body {
   height: 100vh;
 }
 
+label {
+  cursor: text;
+  margin-bottom: 7px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #444;
+}
+
 .signup-container {
   background-color: #fff;
   padding: 30px 40px;
@@ -21,14 +29,14 @@ body {
   width: 490px;
 }
 
-.signup-container h2 {
+h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 26px;
   color: #333;
 }
 
-.signup-container input {
+input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -39,28 +47,29 @@ body {
 
 #submit {
   width: 100%;
-  padding: 12px;
+  padding: 11px;
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: 700;
   margin-top: 15px;
   cursor: pointer;
 }
 
-.signup-container p {
+p {
   text-align: center;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 17px;
 }
 
-.signup-container a {
+a {
   color: #4caf50;
   text-decoration: none;
   cursor: pointer;
 }
 
-.signup-container a:hover {
+a:hover {
   text-decoration: underline;
 }

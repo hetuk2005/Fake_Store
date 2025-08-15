@@ -14,6 +14,11 @@
       "email": "hetuk89@gmail.com",
       "password": "$2a$10$jYzapvIQJLdSUHwA36sXT.AqVanCc3YABO3xpJwpxGdSQ2RDa3CMa",
       "id": 3
+    },
+    {
+      "email": "hetuk9@gmail.com",
+      "password": "$2a$10$oKN0eZHQJ/5F6M2hrKerQefejlbsKkqlP3LaUhIEzTMw134ZxgBaa",
+      "id": 4
     }
   ],
   "cart": [

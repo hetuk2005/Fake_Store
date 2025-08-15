@@ -40,7 +40,7 @@ async function loginForm(e) {
       const UpperCase = /[A-Z]/.test(password);
       const LowerCase = /[a-z]/.test(password);
       const NumCase = /[0-9]/.test(password);
-      // const SpecialCase = /[!@#$%^&*\,.?":{}|<>]/.test(password);
+      const SpecialCase = /[!@#$%^&*\,.?":{}|<>]/.test(password);
       if (!UpperCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Upper Case In Password";
@@ -50,18 +50,35 @@ async function loginForm(e) {
       } else if (!NumCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Number In Password";
-      } // else if (!SpecialCase) {
-      //   document.getElementById("pass_message").innerHTML =
-      //     "Please Enter The One Special Charater Case In Password"
-      // }
+      } else if (!SpecialCase) {
+        document.getElementById("pass_message").innerHTML =
+          "Please Enter The One Special Charater Case In Password";
+      }
     }
   } else if (password != confirm_password) {
     document.getElementById("pass_message").innerHTML =
       "Password Not Matched With Confired Password";
     return false;
-  } else {
-    document.getElementById("pass_message").innerHTML = "Login Successful";
+  }
 
+  // Gender Radio Button Validation
+
+  let radioData =
+    document.querySelector("#radiobtn") && document.querySelector("#radiobtn1");
+  let checked = false;
+
+  for (let i = 0; i < radioData.length; i++) {
+    if (radioData[i].checked === true) {
+      checked = true;
+      return true;
+      break;
+    }
+  }
+  if (!checked) {
+    document.getElementById("#gender_message").innerHTML =
+      "Please Select Anyone";
+    return false;
+  } else {
     let formObject = {
       email,
       password,
