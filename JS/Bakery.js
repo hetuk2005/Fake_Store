@@ -363,5 +363,13 @@ window.onload = () => {
   typePlaceholder();
 };
 
-// 30-40
-// 40-50
+// 15-20 Done
+// 15-20 Women Done
+// 20-30 Done
+// 20-30 Women Done
+// 30-40 Done
+// 30-40 Women Done
+// 40-50 Done
+// 40-50 Women Done
+// 50-60 Done
+// 50-60 Women Done
