@@ -362,3 +362,6 @@ window.onload = () => {
   cart_num();
   typePlaceholder();
 };
+
+// 30-40
+// 40-50
