@@ -19,6 +19,7 @@ export const navbar = ({ showCart = true } = {}) => {
                 <li onclick="changeToLogin()">Sign-Up/Login</li>
                 <select name="Filter" id="filter" onclick="filterFunc()">
                 </select>
+                <img id="avatar" alt="Age Profile Avtar">
             </ul>
         </nav>`;
 };
@@ -55,6 +56,14 @@ ul > img {
   object-fit: fill;
   margin: 5px 0;
   border: none;
+}
+
+#avatar{
+width: 60px;
+height: 55px;
+border-radius: 50%;
+object-fit: cover;
+border: none;
 }
 
 ul > input {
@@ -100,7 +109,7 @@ select {
   color: whitesmoke;
   height: 18px;
   width: 18px;
-  left: 61.9%;
+  left: 55.1%;
   cursor: pointer;
 }
 `;

@@ -357,19 +357,14 @@ const typePlaceholder = () => {
 
 window.onload = () => {
   input = document.querySelector("#search");
+  let avatar = sessionStorage.getItem("Avatar");
+  if (avatar) {
+    document.querySelector("#avatar").src = avatar;
+  }
   Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
   cart_num();
   typePlaceholder();
 };
 
-// 15-20 Done
-// 15-20 Women Done
-// 20-30 Done
-// 20-30 Women Done
-// 30-40 Done
-// 30-40 Women Done
-// 40-50 Done
-// 40-50 Women Done
-// 50-60 Done
-// 50-60 Women Done
+// https://raw.githubusercontent.com/hetuk2005/Anime-Website/760ad3d3e4a658d8ef9e8a29af795e5cb0e7da25/utils/Profile.svg

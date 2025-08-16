@@ -11,9 +11,7 @@ async function loginForm(e) {
   let password = document.querySelector("#pass").value;
   let email = document.querySelector("#email").value;
   let age = document.querySelector("#age").value;
-  let gender = document.querySelectorAll(
-    "input[name='content']:checked"
-  )?.value;
+  let gender = document.querySelector("input[name='content']:checked")?.value;
 
   document.getElementById("email_message").innerHTML = "";
   document.getElementById("pass_message").innerHTML = "";
@@ -86,7 +84,7 @@ async function loginForm(e) {
 
   // Gender Radio Button Validation
 
-  let radioData = document.querySelectorAll("input[name='content']");
+  let radioData = document.querySelector("input[name='content']");
   let checked = false;
 
   for (let i = 0; i < radioData.length; i++) {
@@ -103,6 +101,8 @@ async function loginForm(e) {
     let formObject = {
       email,
       password,
+      age,
+      gender,
     };
 
     try {
@@ -116,9 +116,34 @@ async function loginForm(e) {
 
       let data = await response.json();
       console.log("🚀 ~ data:", data);
-      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
 
       if (data.accessToken) {
+        sessionStorage.setItem("token", JSON.stringify(data.accessToken));
+        let ageres = await fetch(ageApi);
+        let ageData = await ageres.json();
+
+        let ageRange = "";
+
+        if (age >= 15 && age <= 20) {
+          ageRange = "15-20 Age";
+        } else if (age >= 21 && age <= 30) {
+          ageRange = "20-30 Age";
+        } else if (age >= 31 && age <= 40) {
+          ageRange = "30-40 Age";
+        } else if (age >= 41 && age <= 50) {
+          ageRange = "40-50 Age";
+        } else if (age >= 51 && age <= 60) {
+          ageRange = "50-60 Age";
+        }
+
+        let avtarObj = ageData.find(
+          (item) => item.title === ageRange && item.gender === gender
+        );
+
+        if (avtarObj) {
+          sessionStorage.setItem("Avatar", avtarObj.image);
+        }
+
         window.location = "Bakery.html";
       }
     } catch (error) {
