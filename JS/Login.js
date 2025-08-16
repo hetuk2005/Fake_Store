@@ -1,4 +1,5 @@
 const loginApi = `http://localhost:3500/login`;
+const ageApi = `http://localhost:3500/ageValid`;
 
 document.querySelector("#changeTo").addEventListener("click", function () {
   window.location = "Registration.html";
@@ -9,6 +10,15 @@ async function loginForm(e) {
 
   let password = document.querySelector("#pass").value;
   let email = document.querySelector("#email").value;
+  let age = document.querySelector("#age").value;
+  let gender = document.querySelectorAll(
+    "input[name='content']:checked"
+  )?.value;
+
+  document.getElementById("email_message").innerHTML = "";
+  document.getElementById("pass_message").innerHTML = "";
+  document.getElementById("age_message").innerHTML = "";
+  document.getElementById("gender_message").innerHTML = "";
 
   // Email Validation
 
@@ -32,10 +42,12 @@ async function loginForm(e) {
   if (password !== null) {
     if (password.trim() === "") {
       document.getElementById("pass_message").innerHTML =
-        "Please Enter The Value";
+        "Please Enter Password";
+      return false;
     } else if (password.length > 8 && password.length > 20) {
       document.getElementById("pass_message").innerHTML =
         "Please Enter The Corrected Length";
+      return false;
     } else {
       const UpperCase = /[A-Z]/.test(password);
       const LowerCase = /[a-z]/.test(password);
@@ -44,38 +56,47 @@ async function loginForm(e) {
       if (!UpperCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Upper Case In Password";
+        return false;
       } else if (!LowerCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Lower Case In Password";
+        return false;
       } else if (!NumCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Number In Password";
+        return false;
       } else if (!SpecialCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Special Charater Case In Password";
+        return false;
       }
     }
-  } else if (password != confirm_password) {
-    document.getElementById("pass_message").innerHTML =
-      "Password Not Matched With Confired Password";
+  }
+
+  // Age Validation
+
+  if (age === "") {
+    document.getElementById("age_message").innerHTML = "Please Enter Your Age";
+    return false;
+  } else if (age <= 14 || age >= 61) {
+    document.getElementById("age_message").innerHTML =
+      "Please Enter Age Between 15-60";
     return false;
   }
 
   // Gender Radio Button Validation
 
-  let radioData =
-    document.querySelector("#radiobtn") && document.querySelector("#radiobtn1");
+  let radioData = document.querySelectorAll("input[name='content']");
   let checked = false;
 
   for (let i = 0; i < radioData.length; i++) {
     if (radioData[i].checked === true) {
       checked = true;
-      return true;
       break;
     }
   }
   if (!checked) {
-    document.getElementById("#gender_message").innerHTML =
+    document.querySelector("#gender_message").innerHTML =
       "Please Select Anyone";
     return false;
   } else {
@@ -98,7 +119,7 @@ async function loginForm(e) {
       sessionStorage.setItem("token", JSON.stringify(data.accessToken));
 
       if (data.accessToken) {
-        window.location = "Home.html";
+        window.location = "Bakery.html";
       }
     } catch (error) {
       console.log("🚀 ~ error:", error);

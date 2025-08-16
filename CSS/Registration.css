@@ -5,6 +5,10 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+span {
+  color: red;
+}
+
 body {
   background-color: #f2f2f2;
   display: flex;

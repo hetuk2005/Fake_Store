@@ -12,6 +12,11 @@ async function formData(e) {
   let confirm_password = document.querySelector("#confirmpass").value;
   let email = document.querySelector("#email").value;
 
+  document.getElementById("user_message").innerHTML = "";
+  document.getElementById("email_message").innerHTML = "";
+  document.getElementById("pass_message").innerHTML = "";
+  document.getElementById("confirmpass_message").innerHTML = "";
+
   // Username Validation
 
   if (username == "") {
@@ -46,33 +51,35 @@ async function formData(e) {
   if (password !== null) {
     if (password.trim() === "") {
       document.getElementById("pass_message").innerHTML =
-        "Please Enter The Value";
+        "Please Enter Password";
+      return false;
     } else if (password.length > 8 && password.length > 20) {
       document.getElementById("pass_message").innerHTML =
         "Please Enter The Corrected Length";
+      return false;
     } else {
       const UpperCase = /[A-Z]/.test(password);
       const LowerCase = /[a-z]/.test(password);
       const NumCase = /[0-9]/.test(password);
-      // const SpecialCase = /[!@#$%^&*\,.?":{}|<>]/.test(password);
+      const SpecialCase = /[!@#$%^&*\,.?":{}|<>]/.test(password);
       if (!UpperCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Upper Case In Password";
+        return false;
       } else if (!LowerCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Lower Case In Password";
+        return false;
       } else if (!NumCase) {
         document.getElementById("pass_message").innerHTML =
           "Please Enter The One Number In Password";
-      } // else if (!SpecialCase) {
-      //   document.getElementById("pass_message").innerHTML =
-      //     "Please Enter The One Special Charater Case In Password"
-      // }
+        return false;
+      } else if (!SpecialCase) {
+        document.getElementById("pass_message").innerHTML =
+          "Please Enter The One Special Charater Case In Password";
+        return false;
+      }
     }
-  } else if (password != confirm_password) {
-    document.getElementById("pass_message").innerHTML =
-      "Password Not Matched With Confired Password";
-    return false;
   }
 
   // Confirm Password Validation
@@ -80,6 +87,10 @@ async function formData(e) {
   if (confirm_password == "") {
     document.getElementById("confirmpass_message").innerHTML =
       "Please Fill The Confirm Password Field";
+    return false;
+  } else if (password != confirm_password) {
+    document.getElementById("confirmpass_message").innerHTML =
+      "Password Not Matched With Confired Password";
     return false;
   } else {
     document.getElementById("confirmpass_message").innerHTML =
