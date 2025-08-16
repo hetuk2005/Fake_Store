@@ -84,16 +84,7 @@ async function loginForm(e) {
 
   // Gender Radio Button Validation
 
-  let radioData = document.querySelector("input[name='content']");
-  let checked = false;
-
-  for (let i = 0; i < radioData.length; i++) {
-    if (radioData[i].checked === true) {
-      checked = true;
-      break;
-    }
-  }
-  if (!checked) {
+  if (!gender) {
     document.querySelector("#gender_message").innerHTML =
       "Please Select Anyone";
     return false;
@@ -143,6 +134,10 @@ async function loginForm(e) {
         if (avtarObj) {
           sessionStorage.setItem("Avatar", avtarObj.image);
         }
+
+        console.log("AgeData:", ageData);
+        console.log("AgeRange:", ageRange, "Gender:", gender);
+        console.log("AvtarObj:", avtarObj);
 
         window.location = "Bakery.html";
       }

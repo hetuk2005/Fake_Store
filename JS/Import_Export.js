@@ -59,8 +59,8 @@ ul > img {
 }
 
 #avatar{
-width: 60px;
-height: 55px;
+max-width: 55px;
+height: 50px;
 border-radius: 50%;
 object-fit: cover;
 border: none;
@@ -109,7 +109,7 @@ select {
   color: whitesmoke;
   height: 18px;
   width: 18px;
-  left: 55.1%;
+  left: 55.5%;
   cursor: pointer;
 }
 `;

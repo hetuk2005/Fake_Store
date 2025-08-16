@@ -14,23 +14,13 @@ let allProducts;
 
 const storage = JSON.parse(sessionStorage.getItem("category"));
 
-// const path = window.location.pathname;
-// console.log(path);
-
-// const cartLength = document.querySelector("span");
-// if (path === "/Bakery.html") {
-//   cartLength.style.display = cartArr.length < 0 ? "none" : "block";
-//   cartLength.className = cartArr.length > 0 ? "cartLength-active" : "none";
-//   cartLength.innerHTML = cartArr.length > 0 ? cartArr.length : "";
-// }
-
 const countCategory = () => {
   if (!storage) return;
   let filterSelect = document.querySelector("#filter");
   filterSelect.innerHTML = ""; // Clear previous options if needed
   Object.keys(storage).map((key) => {
     let options = document.createElement("option");
-    options.value = key;
+    // options.value = key;
     options.innerText = key;
     filterSelect.append(options);
   });
@@ -41,15 +31,15 @@ const Apicalling = () => {
     .then((res) => res.json())
     .then((res) => {
       let category = res.map((el) => el.category);
-      const countCategory = category.reduce((acc, fruit) => {
+      const counts = category.reduce((acc, fruit) => {
         acc[fruit] = (acc[fruit] || 0) + 1;
         return acc;
       }, {});
 
-      sessionStorage.setItem("category", JSON.stringify(countCategory));
+      sessionStorage.setItem("category", JSON.stringify(counts));
       countCategory();
-      appendsFunc(res);
-      setTimeout(removePlaceholder, 1000);
+      // appendsFunc(res);
+      // setTimeout(removePlaceholder, 1000);
     })
     .catch((err) => console.log(err));
 };
@@ -339,7 +329,7 @@ const cart_num = async () => {
   }
 };
 
-let text = "🔍  Search For What You Want";
+let text = "🔍  Search For What You Want...";
 let input;
 let i = 0;
 
@@ -357,14 +347,23 @@ const typePlaceholder = () => {
 
 window.onload = () => {
   input = document.querySelector("#search");
-  let avatar = sessionStorage.getItem("Avatar");
-  if (avatar) {
-    document.querySelector("#avatar").src = avatar;
-  }
+
+  const def_avatar =
+    "https://raw.githubusercontent.com/hetuk2005/Anime-Website/760ad3d3e4a658d8ef9e8a29af795e5cb0e7da25/utils/Profile.svg";
+
+  const avatarEl = document.querySelector("#avatar");
+
+  const save = sessionStorage.getItem("Avatar");
+  avatarEl.src = save || def_avatar;
+
+  avatarEl.addEventListener("click", () => {
+    sessionStorage.clear();
+    avatarEl.src = def_avatar;
+    window.location.href = "Bakery.html";
+  });
+
   Apicalling(); // for category dropdown
   dataFetch(); // for initial paginated data
   cart_num();
   typePlaceholder();
 };
-
-// https://raw.githubusercontent.com/hetuk2005/Anime-Website/760ad3d3e4a658d8ef9e8a29af795e5cb0e7da25/utils/Profile.svg

@@ -4,11 +4,11 @@ let cartArr = [];
 
 const storage = JSON.parse(sessionStorage.getItem("category"));
 
-// let tokenStorage = JSON.parse(sessionStorage.getItem("token"));
+let tokenStorage = JSON.parse(sessionStorage.getItem("token"));
 
-// if (!tokenStorage) {
-//   window.location = "Registration.html";
-// }
+if (!tokenStorage) {
+  window.location = "Registration.html";
+}
 
 const fetchCart = () => {
   fetch(api_cart)
@@ -206,4 +206,33 @@ const addToCart = async (element, countElement) => {
 
     // alert("Item Added To Cart!");
   }
+};
+
+let text = "🔍  Search For What You Want...";
+let input;
+let i = 0;
+
+const typePlaceholder = () => {
+  if (!input) return;
+  if (i <= text.length) {
+    input.setAttribute("placeholder", text.substring(0, i));
+    i++;
+    setTimeout(typePlaceholder, 100);
+  } else {
+    i = 0;
+    setTimeout(typePlaceholder, 1100);
+  }
+};
+
+window.onload = () => {
+  input = document.querySelector("#search");
+  let avatar = sessionStorage.getItem("Avatar");
+  let avatarEl = document.querySelector("#avatar");
+  if (avatar) {
+    avatarEl.src = avatar;
+  } else {
+    avatarEl.src =
+      "https://raw.githubusercontent.com/hetuk2005/Anime-Website/760ad3d3e4a658d8ef9e8a29af795e5cb0e7da25/utils/Profile.svg";
+  }
+  typePlaceholder();
 };

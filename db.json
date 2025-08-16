@@ -1,29 +1,9 @@
 {
   "users": [
     {
-      "email": "hetukpatel429@gmail.com",
-      "password": "$2a$10$umDSwDz2c6f.fgrwJKQ9MODg5HIcjruQ3Sny6xNAJZUr8uwzv1za.",
-      "id": 1
-    },
-    {
       "email": "hetukp12@gmail.com",
-      "password": "$2a$10$hjOQLTIHQ.Jc.tjp3tjFSeXb0DytwBHBPW3OQaAmIVw0DB1WiFFRa",
-      "id": 2
-    },
-    {
-      "email": "hetuk89@gmail.com",
-      "password": "$2a$10$jYzapvIQJLdSUHwA36sXT.AqVanCc3YABO3xpJwpxGdSQ2RDa3CMa",
-      "id": 3
-    },
-    {
-      "email": "hetuk9@gmail.com",
-      "password": "$2a$10$oKN0eZHQJ/5F6M2hrKerQefejlbsKkqlP3LaUhIEzTMw134ZxgBaa",
-      "id": 4
-    },
-    {
-      "email": "hetukpatel@gmail.com",
-      "password": "$2a$10$ZQF80GkHjVXAujMrXc2mmu7FWbk.G2cX0HTMxvECVtax7ObJw./t2",
-      "id": 5
+      "password": "$2a$10$1neNQ/xR0CbS.ZXA9JpNSuJg8bN7pAkFxr.0ZykQY7uj/3N9DGL0e",
+      "id": 1
     }
   ],
   "ageValid": [
