@@ -107,9 +107,10 @@ const appendsFunc = (data) => {
           .catch((err) => console.log(err));
       }
     });
-    // button.addEventListener("click", () => {
-    //   window.location = "CheckOutB.html";
-    // });
+
+    button.addEventListener("click", () => {
+      window.location = "CheckOutB.html";
+    });
 
     add.addEventListener("click", () => {
       addToCart(element);

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./CSS/CheckOutB.css">
     </head>
     <body>
+        <div id="nav"></div>
         <div class="main_parent">
             <div class="main_child1">
                 <h1>Checkout</h1>
@@ -102,16 +103,15 @@
         </body>
         <script src="./JS/CheckOutB.js"></script>
         <script type="module">
-        import{navbar,style} from "./JS/Import_Export.js";
-        navbar({ showCart: true });
+             import{navbar,style} from "./JS/Import_Export.js";
         document.addEventListener('DOMContentLoaded',()=>{
         const styleTag = document.createElement("style");
         styleTag.textContent = style();
         document.head.appendChild(styleTag);
-      document.querySelector("#nav").innerHTML = navbar();
-
+      document.querySelector("#nav").innerHTML = navbar({ showCart: false });
   setTimeout(() => {
     countCategory(); // Now #filter exists
+    fetchCart();
   }, 0);
      })
     </script>
