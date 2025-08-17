@@ -142,7 +142,7 @@ const searchFunc = async () => {
       );
     });
     console.log("SearchArr: ", searchArr);
-    await appendsFunc(searchArr);
+    DataCheck(searchArr);
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -155,13 +155,13 @@ const filterFunc = async () => {
   // console.log("Filter: ", filter);
 
   try {
-    let res = await fetch(api);
+    let res = await fetch(`http://localhost:3500/cart`);
     let data = await res.json();
     let filterArr = data.filter((el) => {
       return filter === el.category;
       console.log("FilterArr: ", filterArr);
     });
-    await appendsFunc(filterArr);
+    DataCheck(filterArr);
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -197,6 +197,21 @@ const changeToLogin = () => {
 
 window.onload = () => {
   input = document.querySelector("#search");
+
+  const def_avatar =
+    "https://raw.githubusercontent.com/hetuk2005/Anime-Website/760ad3d3e4a658d8ef9e8a29af795e5cb0e7da25/utils/Profile.svg";
+
+  const avatarEl = document.querySelector("#avatar");
+
+  const save = sessionStorage.getItem("Avatar");
+  avatarEl.src = save || def_avatar;
+
+  avatarEl.addEventListener("click", () => {
+    sessionStorage.clear();
+    avatarEl.src = def_avatar;
+    window.location.href = "Bakery.html";
+  });
+
   DataCheck();
   costUpdate();
   typePlaceholder();

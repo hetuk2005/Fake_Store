@@ -109,7 +109,7 @@ select {
   color: whitesmoke;
   height: 18px;
   width: 18px;
-  left: 55.5%;
+  left: 55.7%;
   cursor: pointer;
 }
 `;
