@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dancing+Script:wght@400..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Pacifico&family=Playwrite+HU:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_parent {
+  padding: 20px 30px;
+  display: flex;
+  align-items: start;
+  gap: 100px;
+}
+
+h1 {
+  margin: 15px 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: large;
+  padding: 15px 0;
+  color: gray;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.main_child1 {
+  width: 60%;
+}
+
+.main_child2 {
+  width: 27%;
+  border: 2px solid;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.add_child1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.add_child1 > h4,
+h4 {
+  font-size: x-large;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 1.5px 0.3px 1.5px 1.5px black;
+}
+
+.add_child1 > button,
+.main_child2 > button,
+button {
+  transition: all 0.2s ease-in-out;
+  padding: 10px 21px;
+  background-color: transparent;
+  font-size: large;
+  font-weight: 700;
+  border: 2px solid;
+  border-radius: 31px;
+  text-transform: capitalize;
+}
+
+.add_child2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.add_child2 > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: gainsboro;
+  padding: 7px 0;
+}
+
+.text > h5 {
+  font-size: large;
+  text-transform: uppercase;
+}
+
+.text > p {
+  color: gray;
+  font-size: medium;
+  font-weight: 550;
+  padding-top: 7px;
+}
+
+.text > h4 {
+  font-size: large;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.payment_child2 {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.payement1,
+.payement2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.payment_child1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.main_child2 > hr {
+  width: 97%;
+  margin: 5px 0;
+  margin-left: 3px;
+}
+
+.main_child2 > h4 {
+  padding: 15px 21px;
+}
+
+.order_child1,
+.order_child2,
+.order_child3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  text-transform: capitalize;
+  font-weight: 550;
+}
+
+.order_child1 > p {
+  font-weight: 400;
+}
+
+.order_child2 > p {
+  color: grey;
+}
+
+.order_child3 > p {
+  font-weight: bold;
+}
+
+.main_child2 > button {
+  margin: 15px 10px;
+  width: 95%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border: 2px solid;
+  margin: 10px 20px;
+  border-radius: 60px;
+}
+
+nav > img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 100px;
+  font-weight: 700;
+  font-size: larger;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+li {
+  border-radius: 50%;
+}
+
+li:hover {
+  border-radius: 0;
+  padding: 10px;
+  background-color: black;
+  color: whitesmoke;
+  line-height: 28px;
+  transition: all 0.7s ease-in-out;
+}
+
+.cart {
+  /* border: 1px solid red; */
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.profile {
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.cart:hover,
+.submit:hover,
+.profile:hover {
+  box-shadow: 1.5px 0.3px 1.5px 1.5px black;
+}
+
+.cart_btn_pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: none;
+}
+
+.cart_btn_pag > button {
+  box-shadow: 1px 0.3px 1px 1px black;
+  width: 40px;
+  height: 40px;
+  font-size: x-large;
+  font-weight: 900;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.cartLength-active {
+  text-align: center;
+  font-size: x-small;
+  font-weight: 900;
+  padding: 1.5px;
+  position: absolute;
+  top: 72px;
+  border-radius: 50%;
+  background: tomato;
+  color: whitesmoke;
+  height: 18px;
+  width: 18px;
+  left: 81.9%;
+}
+
+.details > img {
+  height: 100px !important;
+  width: 100px !important;
+}
+
+.details,
+.quantity,
+.final {
+  display: flex !important;
+  align-items: center;
+  gap: 20px;
+}
+
+.quantity {
+  gap: 15px;
+}
+
+.quantity > p {
+  padding-top: 11px;
+}
+
+.final,
+.details {
+  gap: 10px;
+}
+
+.final {
+  margin: 20px 0;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+#modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#modal_container {
+  background-color: whitesmoke;
+  border-radius: 17px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+#modal_container > img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  animation: scale 1s linear infinite;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+#modal_container > h3 {
+  color: black;
+  font-size: x-large;
+  margin: 20px 0;
+  pointer-events: none;
+}
+
+#modal_container > h4 {
+  font-size: larger;
+  font-weight: 600;
+  margin: 10px 0;
+  pointer-events: none;
+}
+
+#modal_container > button {
+  margin-top: 20px;
+}
+
+.back {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.button_1,
+.button_2 {
+  border-radius: 50%;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.close {
+  position: absolute;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 0;
+  top: 155px;
+  right: 485px;
+}
+
+.close > img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
