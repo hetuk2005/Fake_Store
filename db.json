@@ -93,7 +93,7 @@
         "rate": 3.9,
         "count": 120
       },
-      "quantity": 1
+      "quantity": 2
     },
     {
       "id": 12,
@@ -120,6 +120,32 @@
         "count": 500
       },
       "quantity": 4
+    },
+    {
+      "id": 5,
+      "title": "Cookie Christmas",
+      "price": 100,
+      "description": "A balanced diet is a cookie in each hand.",
+      "category": "Cookies",
+      "image": "https://cdn.pixabay.com/photo/2016/01/07/10/23/cookie-1125527_1280.jpg",
+      "rating": {
+        "rate": 4.6,
+        "count": 400
+      },
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "title": "Chocolate Bake ",
+      "price": 168,
+      "description": "A balanced diet is a cookie in each hand.",
+      "category": "Cookies",
+      "image": "https://cdn.pixabay.com/photo/2019/12/15/17/06/chocolate-4697591_1280.jpg",
+      "rating": {
+        "rate": 3.9,
+        "count": 70
+      },
+      "quantity": 1
     }
   ],
   "products": [
