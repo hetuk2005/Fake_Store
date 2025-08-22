@@ -105,14 +105,20 @@ const costUpdate = () => {
   finalGT.append(`₹${total + shipping}`);
 };
 
-const openmodal = () => {
+const openModal = () => {
   const modal = document.querySelector("#modal");
   modal?.classList.add("show");
 };
 
-const closemodal = () => {
+const closeModal = () => {
   const modal = document.querySelector("#modal");
   modal?.classList.remove("show");
+};
+
+const closeModalHome = () => {
+  const modal = document.querySelector("#modal");
+  modal?.classList.remove("show");
+  window.location = "Bakery.html";
 };
 
 const fetchCart = () => {

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./CSS/CheckOutB.css">
     </head>
     <body>
+        <div>Hello</div>
         <div id="nav"></div>
         <div class="main_parent">
             <div class="main_child1">
@@ -100,9 +101,26 @@
                 </div>
                 <button onclick="openModal()">Checkout</button>
             </div>
-        </body>
-        <script src="./JS/CheckOutB.js"></script>
-        <script type="module">
+
+            <!-- Modal  -->
+
+            <div id="modal">
+                <div id="modal_container">
+                    <img src="./Utils/Checkout.svg" alt="Checkout">
+                    <h3>Thank You For Shopping From Our Website</h3>
+                    <h4>Visit Again</h4>
+                    <button onclick="closeModalHome()">Thank You</button>
+                    <button class="close" onclick="closeModal()">
+                        <img src="./Utils/Close.svg"
+                            alt="Close Button">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="./JS/CheckOutB.js"></script>
+    <script type="module">
              import{navbar,style} from "./JS/Import_Export.js";
         document.addEventListener('DOMContentLoaded',()=>{
         const styleTag = document.createElement("style");
@@ -115,4 +133,4 @@
   }, 0);
      })
     </script>
-    </html>
+</html>
